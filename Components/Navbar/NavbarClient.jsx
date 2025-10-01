@@ -1,0 +1,177 @@
+"use client";
+
+import { useNavbarEffects } from "@/CustomHooks/useNavbarEffects"; 
+import Link from "next/link";
+import React from "react";
+import { FaChevronDown, FaBars, FaTimes } from "react-icons/fa";
+import Container from "../Shared/Container";
+
+export default function NavbarClient() {
+  const { isScrolled, isSidebarOpen, toggleSidebar } = useNavbarEffects();
+
+
+  const NavLinkWithDropdown = ({ title }) => (
+    <Link
+      href="#"
+      className="flex items-center space-x-1 hover:text-green-400 transition-colors"
+    >
+      <span className="font-medium text-sm">{title}</span>
+      <FaChevronDown className="text-xs" />
+    </Link>
+  );
+
+  return (
+    <>
+      <nav
+        className={`fixed top-0 left-0 w-full   z-50 transition-all duration-300 ${
+          isScrolled
+            ? "bg-white text-[#545454] shadow-lg py-4"
+            : "bg-transparent text-white py-4"
+        }`}
+      >
+            <Container>
+               <div className="flex items-center justify-between px-2 sm:px-6 md:px-8 lg:px-10 xl:px-0">
+       <div className="flex items-center space-x-8">
+          <Link href="/" className="flex items-center">
+            <span className="text-2xl font-extrabold">Escrowly</span>
+          </Link>
+         
+                 </div>
+
+        
+         <div className="hidden lg:flex items-center space-x-6 text-sm font-medium">
+            <Link
+              href="/home"
+              className="hover:text-green-400 transition-colors"
+            >
+              Home
+            </Link>
+            <NavLinkWithDropdown title="Users" />
+            <NavLinkWithDropdown title="Pages" />
+            <Link
+              href="/contact"
+              className="hover:text-green-400 transition-colors"
+            >
+              Contact
+            </Link>
+          </div>
+
+        <div className="flex items-center space-x-4">
+          <Link
+            href="/seller"
+            className="hidden md:block text-sm font-medium hover:text-green-400 transition-colors"
+          >
+            Become a Seller
+          </Link>
+          <Link
+            href="/signin"
+            className="text-sm font-medium hover:text-green-400 transition-colors"
+          >
+            Sign in
+          </Link>
+          <button
+            className={`px-5 py-2 text-sm font-semibold rounded transition-colors hidden sm:block ${
+              isScrolled
+                ? "bg-gray-800 text-white hover:bg-gray-700"
+                : "bg-white text-gray-800 hover:bg-gray-200"
+            }`}
+          >
+            Register
+          </button>
+          <button
+            onClick={toggleSidebar}
+            className="lg:hidden text-xl p-2"
+            aria-label="Toggle menu"
+          >
+            {isSidebarOpen ? <FaTimes /> : <FaBars />}
+          </button>
+        </div>
+               </div>
+          
+
+
+            </Container>
+
+      </nav>
+
+      <aside
+        className={`fixed top-0 left-0 h-full w-72 bg-white text-gray-800 transform transition-transform duration-300 ease-in-out z-50 shadow-2xl ${
+          isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
+      >
+        <div className="flex flex-col h-full">
+          <div className="flex items-center justify-between p-5 border-b border-gray-200">
+            <Link
+              href="/"
+              onClick={toggleSidebar}
+              className="flex items-center"
+            >
+              <span className="text-2xl font-extrabold text-gray-800">
+                Escrowly
+              </span>
+            </Link>
+          </div>
+
+         
+          <nav className="flex-grow px-2">
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/home"
+                  className="block w-full text-left px-4 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
+                  onClick={toggleSidebar}
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="block w-full text-left px-4 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
+                  onClick={toggleSidebar}
+                >
+                  Users
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="block w-full text-left px-4 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
+                  onClick={toggleSidebar}
+                >
+                  Pages
+                </a>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="block w-full text-left px-4 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
+                  onClick={toggleSidebar}
+                >
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </nav>
+
+          <div className="p-5 border-t border-gray-200 space-y-4">
+            <Link
+              href="/seller"
+              className="block w-full text-center px-4 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
+              onClick={toggleSidebar}
+            >
+              Become a Seller
+            </Link>
+          </div>
+        </div>
+      </aside>
+
+      {isSidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black/70 z-40 lg:hidden"
+          onClick={toggleSidebar}
+        ></div>
+      )}
+    </>
+  );
+}
