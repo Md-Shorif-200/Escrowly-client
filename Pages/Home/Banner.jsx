@@ -1,4 +1,4 @@
-import React from "react";
+
 import { FaSearch } from "react-icons/fa";
 
 const BannerImg = "/banner.jpg";
@@ -37,7 +37,7 @@ export default function Banner() {
             />
           </div>
 
-          <button className=" w-full sm:w-[20%] h-full  bg-green-400 hover:bg-green-500 text-white px-6 py-3 sm:py-6 font-semibold mt-2 sm:mt-0 cursor-pointer">
+          <button className=" w-full sm:w-[20%] h-full  bg-[#10B981] hover:bg-green-500 text-white px-6 py-3 sm:py-6 font-semibold mt-2 sm:mt-0 cursor-pointer">
             Search
           </button>
         </div>

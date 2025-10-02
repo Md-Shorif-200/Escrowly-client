@@ -1,14 +1,22 @@
-import React from 'react'
-import Navbar from './Navbar/Navbar'
-import Footer from './Footer/Footer'
+"use client"
+import React from "react";
+import Navbar from "./Navbar/Navbar";
+import Footer from "./Footer/Footer";
+import { usePathname } from "next/navigation";
+
+export default function Layout({ children }) {
+  const pathname = usePathname();
 
 
-export default function ({children}) {
+  const hideLayout = ["/Log-in", "/register"];
+
+  const isHide = hideLayout.includes(pathname);
+
   return (
     <div>
-         <Navbar></Navbar>
-        {children}
-           <Footer></Footer>
+      {!isHide && <Navbar />}
+      {children}
+      {!isHide && <Footer />}
     </div>
-  )
+  );
 }

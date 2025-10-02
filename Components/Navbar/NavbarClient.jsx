@@ -30,7 +30,7 @@ export default function NavbarClient() {
         }`}
       >
             <Container>
-               <div className="flex items-center justify-between px-2 sm:px-6 md:px-8 lg:px-10 xl:px-0">
+               <div className="flex items-center justify-between  ">
        <div className="flex items-center space-x-8">
           <Link href="/" className="flex items-center">
             <span className="text-2xl font-extrabold">Escrowly</span>
@@ -64,20 +64,20 @@ export default function NavbarClient() {
             Become a Seller
           </Link>
           <Link
-            href="/signin"
+            href="/log-in"
             className="text-sm font-medium hover:text-green-400 transition-colors"
           >
             Sign in
           </Link>
-          <button
+          <Link href='/register'
             className={`px-5 py-2 text-sm font-semibold rounded transition-colors hidden sm:block ${
               isScrolled
-                ? "bg-gray-800 text-white hover:bg-gray-700"
+                ? "bg_color text-white"
                 : "bg-white text-gray-800 hover:bg-gray-200"
             }`}
           >
             Register
-          </button>
+          </Link>
           <button
             onClick={toggleSidebar}
             className="lg:hidden text-xl p-2"

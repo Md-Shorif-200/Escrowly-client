@@ -11,13 +11,13 @@ export default function HomePage() {
   return (
         <main>
              <Banner></Banner>
-             <Container>
+     
                   <HowItWorks></HowItWorks>
                   <OurServices></OurServices>
                    <WhyChooseUs></WhyChooseUs>
                     <TopSeller></TopSeller>
                   <Statistics></Statistics>
-             </Container>
+
         </main>
   )
 }

@@ -26,8 +26,38 @@ body {
 
 
 .text_color {
-  @apply text-green-400
+  @apply text-[#10B981]
 }
 .bg_color {
-  @apply bg-green-400
+  @apply bg-[#10B981]
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  */
+
+.form_error {
+    @apply text-base capitalize mb-2 text-red-700 
+}
+
+
+.form_section input {
+    @apply border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#10B981] mb-4 mt-2 
+}
+
+
+

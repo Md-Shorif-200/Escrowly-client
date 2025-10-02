@@ -1,14 +1,9 @@
-"use client";
-
-import NavbarClient from './NavbarClient';
-
+import NavbarClient from "./NavbarClient";
 
 export default function Navbar() {
   return (
     <div>
-
-        <NavbarClient />
-
+      <NavbarClient />
     </div>
   );
 }

@@ -42,8 +42,6 @@ export default function Statistics() {
               className="object-cover rounded-xl"
             />
           </div>
-
-          
         </div>
       </Container>
     </main>
