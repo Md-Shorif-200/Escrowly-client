@@ -159,7 +159,7 @@ export default function NavbarClient() {
               </li>
               <li>
                 <Link
-                  href=""
+                  href="/dashboard"
                   className="block w-full text-left px-4 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
                   onClick={toggleSidebar}
                 >

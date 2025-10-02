@@ -16,8 +16,13 @@ import {
   FaIdCard,
   FaHistory,
   FaComments,
-  FaShoppingCart
+  FaShoppingCart,
+
 } from 'react-icons/fa';
+
+
+
+
 
 export default function DashboardSidebar() {
   const role = 'seller'; // এটা পরে dynamic হবে
@@ -32,6 +37,7 @@ export default function DashboardSidebar() {
         // { name: 'My Store', icon: FaStore, path: '/dashboard/store' },
         { name: 'Create Orders', icon: FaBox, path: '/dashboard/create-orders' },
         { name: 'My Orders', icon: FaShoppingCart, path: '/dashboard/my-orders' },
+        { name: 'Home', icon: FaHome, path: '/' },
         // { name: 'Wallet', icon: FaWallet, path: '/dashboard/wallet' },
         // { name: 'Analytics', icon: FaChartBar, path: '/dashboard/analytics' },
         // { name: 'Messages', icon: FaComments, path: '/dashboard/messages' },
