@@ -13,7 +13,7 @@ export default function Banner() {
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
         backgroundBlendMode: "multiply",
-        backgroundColor: "rgba(0,0,0,0.6)",
+        // backgroundColor: "rgba(0,0,0,0.6)",
       }}
     >
       <div className=" md:text-center  px-4">

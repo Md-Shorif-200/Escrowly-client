@@ -8,7 +8,7 @@ export default function Layout({ children }) {
   const pathname = usePathname();
 
 
-  const hideLayout = ["/Log-in", "/register"];
+  const hideLayout = ["/log-in", "/register"];
 
   const isHide = hideLayout.includes(pathname);
 
