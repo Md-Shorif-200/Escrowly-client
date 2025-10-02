@@ -47,15 +47,28 @@ export default function NavbarClient() {
             {/* Middle: Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-6 text-sm font-medium">
               <Link
-                href="/home"
+                href=""
                 className="hover:text-green-400 transition-colors"
               >
                 Home
               </Link>
-              <NavLinkWithDropdown title="Users" />
-              <NavLinkWithDropdown title="Pages" />
+
+                <Link
+                href=""
+                className="hover:text-green-400 transition-colors"
+              >
+                About
+              </Link>
+
+                <Link
+                href=""
+                className="hover:text-green-400 transition-colors"
+              >
+                Services
+              </Link>
+        
               <Link
-                href="/contact"
+                href=""
                 className="hover:text-green-400 transition-colors"
               >
                 Contact
@@ -119,7 +132,7 @@ export default function NavbarClient() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/home"
+                  href=""
                   className="block w-full text-left px-4 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
                   onClick={toggleSidebar}
                 >
@@ -127,26 +140,26 @@ export default function NavbarClient() {
                 </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  href=""
                   className="block w-full text-left px-4 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
                   onClick={toggleSidebar}
                 >
-                  Users
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block w-full text-left px-4 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
-                  onClick={toggleSidebar}
-                >
-                  Pages
-                </a>
+                  About
+                </Link>
               </li>
               <li>
                 <Link
-                  href="/contact"
+                  href=""
+                  className="block w-full text-left px-4 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
+                  onClick={toggleSidebar}
+                >
+                  Serveices
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href=""
                   className="block w-full text-left px-4 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
                   onClick={toggleSidebar}
                 >
