@@ -24,40 +24,19 @@ body {
   color: var(--foreground);
 }
 
-
 .text_color {
-  @apply text-[#10B981]
+  @apply text-[#10B981];
 }
 .bg_color {
-  @apply bg-[#10B981]
+  @apply bg-[#10B981];
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*  */
 
 .form_error {
-    @apply text-base capitalize mb-2 text-red-700 
+  @apply text-base capitalize mb-2 text-red-700;
 }
-
 
 .form_section input {
-    @apply border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#10B981] mb-4 mt-2 
+  @apply border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#10B981] mb-4 mt-2;
 }
-
-
-

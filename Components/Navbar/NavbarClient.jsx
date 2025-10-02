@@ -12,7 +12,7 @@ export default function NavbarClient() {
   const NavLinkWithDropdown = ({ title }) => (
     <Link
       href="#"
-      className="flex items-center space-x-1 hover:text-green-400 transition-colors"
+      className="flex items-center space-x-1 hover:text-[#10B981] transition-colors"
     >
       <span className="font-medium text-sm">{title}</span>
       <FaChevronDown className="text-xs" />
@@ -48,30 +48,30 @@ export default function NavbarClient() {
             <div className="hidden lg:flex items-center space-x-6 text-sm font-medium">
               <Link
                 href=""
-                className="hover:text-green-400 transition-colors"
+                className="hover:text-[#10B981] transition-colors"
               >
                 Home
               </Link>
 
                 <Link
                 href=""
-                className="hover:text-green-400 transition-colors"
+                className="hover:text-[#10B981] transition-colors"
               >
                 About
               </Link>
 
                 <Link
                 href=""
-                className="hover:text-green-400 transition-colors"
+                className="hover:text-[#10B981] transition-colors"
               >
                 Services
               </Link>
         
               <Link
-                href=""
-                className="hover:text-green-400 transition-colors"
+                href="/dashboard"
+                className="hover:text-[#10B981] transition-colors"
               >
-                Contact
+                Dashboard
               </Link>
             </div>
 
@@ -79,15 +79,15 @@ export default function NavbarClient() {
             <div className="flex items-center space-x-4">
               <Link
                 href="/seller"
-                className="hidden md:block text-sm font-medium hover:text-green-400 transition-colors"
+                className="hidden md:block text-sm font-medium hover:text-[#10B981] transition-colors"
               >
                 Become a Seller
               </Link>
               <Link
                 href="/log-in"
-                className="text-sm font-medium hover:text-green-400 transition-colors"
+                className="text-sm font-medium hover:text-[#10B981] transition-colors"
               >
-                Sign in
+                Log in
               </Link>
               <Link
                 href="/register"
@@ -163,7 +163,7 @@ export default function NavbarClient() {
                   className="block w-full text-left px-4 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
                   onClick={toggleSidebar}
                 >
-                  Contact
+                  Dashboard
                 </Link>
               </li>
             </ul>

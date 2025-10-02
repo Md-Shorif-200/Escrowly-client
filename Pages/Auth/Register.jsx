@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 import { useForm } from "react-hook-form";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaArrowRight, FaEye, FaEyeSlash } from "react-icons/fa";
 
 import img_1 from "../../public/Lottie/Shopping Green.json";
 import Lottie from "lottie-react";
@@ -109,13 +109,24 @@ const Register = () => {
 
             {/* submit button */}
 
-            <button
-              type="submit"
-              className="bg_color w-full py-3 rounded-lg mt-3 font-semibold  text-white cursor-pointer"
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? "Submitting..." : "Sign Up"}
-            </button>
+           <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full flex items-center justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-[#10B981] hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#10B981] transition duration-150 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <FaSpinner></FaSpinner>
+      
+                        Submitting...
+                      </>
+                    ) : (
+                      <>
+                        Creat Account
+                        <FaArrowRight className="ml-2 h-4 w-4" />
+                      </>
+                    )}
+                  </button>
 
             <p className="text-base capitalize sm:text-end my-2 font-semibold">
               Already have an acount ? please{" "}
