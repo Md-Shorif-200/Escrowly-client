@@ -8,16 +8,10 @@ import Container from "../Shared/Container";
 
 export default function NavbarClient() {
   const { isScrolled, isSidebarOpen, toggleSidebar } = useNavbarEffects();
+  console.log(isScrolled);
+  
 
-  const NavLinkWithDropdown = ({ title }) => (
-    <Link
-      href="#"
-      className="flex items-center space-x-1 hover:text-[#10B981] transition-colors"
-    >
-      <span className="font-medium text-sm">{title}</span>
-      <FaChevronDown className="text-xs" />
-    </Link>
-  );
+
 
   return (
     <>
