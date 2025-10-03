@@ -25,7 +25,7 @@ export default function NavbarClient() {
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
           isScrolled
             ? "bg-white text-[#545454] shadow-lg py-4"
-            : "bg-transparent text-white py-4"
+            : "bg-transparent text-black py-4"
         }`}
       >
         <Container>
@@ -94,7 +94,7 @@ export default function NavbarClient() {
                 className={`px-5 py-2 text-sm font-semibold rounded transition-colors hidden sm:block ${
                   isScrolled
                     ? "bg_color text-white"
-                    : "bg-white text-gray-800 hover:bg-gray-200"
+                    : "bg_color text-white"
                 }`}
               >
                 Register
@@ -185,7 +185,7 @@ export default function NavbarClient() {
       {/* Overlay for Sidebar */}
       {isSidebarOpen && (
         <div
-          className="fixed inset-0 bg-black/70 z-40 lg:hidden"
+          className="fixed inset-0 bg-black/90 z-40 lg:hidden"
           onClick={toggleSidebar}
         ></div>
       )}

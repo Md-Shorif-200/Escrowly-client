@@ -117,7 +117,7 @@ export default function MyOrders() {
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <span className="text-sm font-medium text-gray-900">
-                      ৳{order.price.toLocaleString()}
+                      ${order.price.toLocaleString()}
                     </span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">

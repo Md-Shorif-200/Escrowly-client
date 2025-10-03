@@ -1,51 +1,46 @@
+"use client";
+import Image from "next/image";
+import Container from "@/Components/Shared/Container";
 
-import { FaSearch } from "react-icons/fa";
-
-const BannerImg = "/banner.jpg";
+// If the image is in the public folder, you don't need import.
+// Just use: <Image src="/banner.svg" ... />
+import img_1 from "../../public/banner.svg";  
 
 export default function Banner() {
   return (
-    <div
-      className="w-full min-h-screen flex items-center justify-center text-white"
-      style={{
-        backgroundImage: `url(${BannerImg})`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-        backgroundBlendMode: "multiply",
-        // backgroundColor: "rgba(0,0,0,0.6)",
-      }}
-    >
-      <div className=" md:text-center  px-4">
-        <h1 className="text-xl sm:text-4xl md:text-5xl font-bold capitalize">
-          Hire the best freelancers for <br /> any job, online.
-        </h1>
+    <div className="w-full min-h-[80vh] flex items-center justify-center bg-[#F6FBFF] text-gray-800 pt-20">
+      <Container>
+        <div className="grid grid-cols-1 md:grid-cols-2 items-center  gap-3">
+          {/* Left Section */}
+          <div>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl  font-bold capitalize text-gray-900 text-center md:text-start">
+              Secure online transactions with escrow
+            </h1>
 
-        {/* Sub text */}
-        <p className="mt-4 text-xs sm:text-lg text-gray-200 capitalize">
-          Millions of people use freeio.com to turn their ideas into reality.
-        </p>
-
-        <div className="mt-8  sm:rounded-lg shadow-lg flex flex-col sm:flex-row gap-4 sm:gap-0 items-center overflow-hidden w-full ">
-          <div className="  w-full sm:w-[80%] flex bg-white items-center px-3  sm:px-4 sm:py-3 text-gray-500   ">
-            <FaSearch />
-
-            <input
-              type="text"
-              placeholder="What are you looking for?"
-              className="flex-1 px-3 py-3 outline-none text-gray-700 w-full "
-            />
+            <p className="mt-4 text-sm sm:text-base text-gray-600 text-center md:text-start">
+              Millions of people use our platform to turn their ideas into reality.
+            </p>
+            
+            <div className="w-full flex justify-center md:justify-start">
+               <button className="mt-8 bg-[#10B981] hover:bg-green-600 text-white font-bold px-6 py-2 md:py-3 md:px-8 rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+              Get Started
+            </button>
+            </div>
           </div>
 
-          <button className=" w-full sm:w-[20%] h-full  bg-[#10B981] hover:bg-green-500 text-white px-6 py-3 sm:py-6 font-semibold mt-2 sm:mt-0 cursor-pointer">
-            Search
-          </button>
+          {/* Right Section: Banner Image */}
+          <div className="w-[80%]  mx-auto flex justify-center  mt-10">
+            <Image
+              src={img_1}
+              alt="Escrow banner"
+              width={600}
+              height={400}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
         </div>
-
-        <p className="mt-6 text-sm text-gray-200">
-          Popular Searches: Designer, Developer, Web, IOS, PHP, Senior, Engineer
-        </p>
-      </div>
+      </Container>
     </div>
   );
 }

@@ -1,28 +1,6 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-}
 
 .text_color {
   @apply text-[#10B981];
@@ -39,4 +17,8 @@ body {
 
 .form_section input {
   @apply border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#10B981] mb-4 mt-2;
+}
+
+.primary_btn {
+  @apply w-[120px] px-5 py-2 text-sm font-semibold rounded transition-colors bg-[#10B981] text-white capitalize
 }
