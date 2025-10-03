@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaArrowRight, FaEye, FaEyeSlash } from "react-icons/fa";
 
-import img_1 from "../../public/Lottie/Shopping Green.json";
+import img_1 from "../../public/Lottie/Shopping-Green.json";
 import Lottie from "lottie-react";
 
 const Register = () => {
