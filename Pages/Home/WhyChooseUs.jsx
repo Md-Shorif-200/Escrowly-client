@@ -47,7 +47,7 @@ const WhyChooseUs = () => {
           <div className="flex flex-col justify-center space-y-3 h-full">
             <SectionTitle>Why Choose us</SectionTitle>
 
-            <p className="text-base text-gray-600">
+            <p className="paragrap ">
               We've built our platform from the ground up with your security and
               convenience in mind. See why thousands of users trust us for their
               online dealings.
@@ -63,10 +63,10 @@ const WhyChooseUs = () => {
                     {feature.icon}
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-800">
+                    <h3 className="text_small font-semibold text_secondary_color">
                       {feature.title}
                     </h3>
-                    <p className="mt-1 text-gray-500">{feature.description}</p>
+                    <p className="mt-1 sub_title ">{feature.description}</p>
                   </div>
                 </div>
               ))}

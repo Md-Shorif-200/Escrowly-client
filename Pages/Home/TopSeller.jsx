@@ -47,11 +47,11 @@ function SellerCard({ seller }) {
     <div className="bg-white rounded-2xl shadow-lg px-3 py-6 hover:shadow-xl transition-shadow duration-300 border border-gray-100">
       <div className="relative">
         <div className="absolute top-0 left-0 flex flex-col gap-2">
-          <div className="bg-[#EDEBE7] p-1 text-center rounded-full  text-xs lg:text-[8px] xl:text-xs">
+          <div className="bg-[#EDEBE7] p-1 text-center rounded-full   text-[8px] xl:text-[10px] ">
             Top Seller
           </div>
 
-          <div className="bg-[#22BE0D] p-1 text-center rounded-full  text-xs lg:text-[8px] xl:text-xs text-white">
+          <div className="bg-[#22BE0D] p-1 text-center rounded-full  text-[8px] xl:text-[10px] text-white">
             ${seller.hourlyRate}/hr
           </div>
         </div>

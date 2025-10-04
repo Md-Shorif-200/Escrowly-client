@@ -53,10 +53,10 @@ export default function HowItWorks() {
               className="bg-white p-6 rounded-2xl border border-gray-100 shadow hover:shadow-lg transition flex flex-col justify-between"
             >
               <div className="flex justify-center mb-4">{step.icon}</div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">
+              <h3 className="   font-semibold sub_title mb-2">
                 {step.title}
               </h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
+             <p className="paragrap  leading-relaxed">
                 {step.description}
               </p>
               <div className="mt-4 text-sm font-medium text-green-500">

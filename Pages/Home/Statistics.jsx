@@ -9,9 +9,9 @@ export default function Statistics() {
       <Container>
         <div className="bg-[#13544E] lg:flex gap-10 items-center p-4 sm:px-6 md:p-8 lg:p-10 rounded-lg">
           <div className="w-full lg:w-[60%]">
-            <p className="text-base sm:text-lg font-bold">Explore New Life</p>
+            <h2 className="text-base sm:text-lg font-bold ">Explore New Life</h2>
 
-            <h1 className="text-2xl sm:text-3xl xl:text-4xl font-bold ">
+            <h1 className="text-2xl sm:text-3xl xl:text-4xl font-bold mt-4 ">
               Don't just find. Be found put your CV in front of great employers
             </h1>
 

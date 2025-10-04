@@ -20,5 +20,95 @@
 }
 
 .primary_btn {
-  @apply w-[120px] px-5 py-2 text-sm font-semibold rounded transition-colors bg-[#10B981] text-white capitalize
+  @apply w-[120px] px-5 py-2 text-sm font-semibold rounded transition-colors bg-[#10B981] text-white capitalize cursor-pointer
 }
+
+
+
+
+
+/* --- Text Colors --- */
+.text_primary_color{
+@apply text-[#10B981]
+}
+.text_secondary_color{
+@apply text-[#1F2937]
+}
+
+
+
+.text_dark_color{
+@apply text-[#1f2937]
+}
+
+.text_light_color{
+@apply text-[#ffffff]
+}
+
+
+
+/* --- Background Colors --- */
+
+.bg_primary_color{
+@apply bg-[#10B981]
+}
+.bg_secondary_color{
+@apply bg-[rgb(31,41,55)]
+}
+
+.bg_dark_color{
+@apply bg-[#1f2937]
+}
+
+.bg_light_color{
+@apply bg-[#f9fafb]
+}
+
+
+
+
+/* --- Font Sizes --- */
+
+
+
+/* .text_title { 
+  @apply text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] xl:text-[40px] ;
+} */
+
+/* .text_sub_title { 
+  @apply text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] ;
+} */
+
+/* .text_paragrap { 
+  @apply text-[12px] sm:text-[14px] md:text-[15px] lg:text-[16px]  leading-relaxed;
+} */
+
+.text_hero {
+  @apply text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] xl:text-[48px] font-bold ;
+}
+
+
+.title{
+  @apply text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] xl:text-[40px] text-[#1F2937] ;
+}
+
+.sub_title {
+  @apply text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] text-[#1F2937] ;
+}
+
+.paragrap {
+  @apply text-[12px] sm:text-[14px] md:text-[15px] lg:text-[16px] text-gray-600  leading-relaxed;
+}
+
+
+
+.text_small { 
+  @apply text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] ;
+}
+
+.text_caption { 
+  @apply text-[11px] sm:text-[12px] md:text-[13px] font-light tracking-wide;
+}
+
+
+

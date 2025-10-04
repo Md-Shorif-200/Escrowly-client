@@ -2,22 +2,21 @@
 import Image from "next/image";
 import Container from "@/Components/Shared/Container";
 
-// If the image is in the public folder, you don't need import.
-// Just use: <Image src="/banner.svg" ... />
+
 import img_1 from "../../public/banner.svg";  
 
 export default function Banner() {
   return (
-    <div className="w-full min-h-[80vh] flex items-center justify-center bg-[#F6FBFF] text-gray-800 pt-20">
+    <div className=" w-full bg-[#F6FBFF] min-h-screen md:min-h-[80vh] lg:min-h-[90vh] xl:min-h-[85vh] flex items-center pt-20 sm:pt-24">
       <Container>
-        <div className="grid grid-cols-1 md:grid-cols-2 items-center  gap-3">
+        <div className="md:grid grid-cols-12 items-center   ">
           {/* Left Section */}
-          <div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl  font-bold capitalize text-gray-900 text-center md:text-start">
+          <div className="  md:col-span-6 lg:col-span-7">
+            <h1 className="text_hero  font-bold capitalize text_secondary_color text-center md:text-start">
               Secure online transactions with escrow
             </h1>
 
-            <p className="mt-4 text-sm sm:text-base text-gray-600 text-center md:text-start">
+            <p className="mt-4 paragrap text-center md:text-start">
               Millions of people use our platform to turn their ideas into reality.
             </p>
             
@@ -29,7 +28,7 @@ export default function Banner() {
           </div>
 
           {/* Right Section: Banner Image */}
-          <div className="w-[80%]  mx-auto flex justify-center  mt-10">
+          <div className=" w-[80%] sm:w-[70%] md:w-[90%] mx-auto md:col-span-6 lg:col-span-5 mt-8 lg:mt-0">
             <Image
               src={img_1}
               alt="Escrow banner"
