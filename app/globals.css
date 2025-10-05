@@ -20,7 +20,11 @@
 }
 
 .primary_btn {
-  @apply w-[120px] px-5 py-2 text-sm font-semibold rounded transition-colors bg-[#10B981] text-white capitalize cursor-pointer
+  @apply w-[120px] px-5 py-2 text-sm font-semibold rounded transition-colors bg-[#10B981] text-white capitalize cursor-pointer text-center
+}
+
+.secondary_btn {
+  @apply w-[120px] px-5 py-2 text-sm font-semibold rounded transition-colors bg-white text-black border border-[#10B981] hover:bg-[#10B981] hover:border-none hover:text-white capitalize cursor-pointer text-center
 }
 
 

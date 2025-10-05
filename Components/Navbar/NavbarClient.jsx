@@ -5,10 +5,14 @@ import Link from "next/link";
 import React from "react";
 import { FaChevronDown, FaBars, FaTimes } from "react-icons/fa";
 import Container from "../Shared/Container";
+import { usePathname } from "next/navigation";
 
 export default function NavbarClient() {
   const { isScrolled, isSidebarOpen, toggleSidebar } = useNavbarEffects();
-  console.log(isScrolled);
+  const pathname = usePathname();
+
+
+  const applyScrollEffect = pathname === "/";
   
 
 
@@ -16,10 +20,12 @@ export default function NavbarClient() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-          isScrolled
-            ? "bg-white text-[#545454] shadow-lg py-4"
-            : "bg-transparent text-black py-4"
+         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+          applyScrollEffect
+            ? isScrolled
+              ? "bg-white text-[#545454] shadow-md py-4"
+              : "bg-transparent text-black py-4"
+            : "bg-white text-[#545454] shadow-sm py-4"
         }`}
       >
         <Container>
@@ -41,7 +47,7 @@ export default function NavbarClient() {
             {/* Middle: Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-6 text-sm font-medium">
               <Link
-                href=""
+                href="/"
                 className="hover:text-[#10B981] transition-colors"
               >
                 Home
@@ -55,7 +61,7 @@ export default function NavbarClient() {
               </Link>
 
                 <Link
-                href=""
+                href="/services"
                 className="hover:text-[#10B981] transition-colors"
               >
                 Services
@@ -126,7 +132,7 @@ export default function NavbarClient() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href=""
+                  href="/"
                   className="block w-full text-left px-4 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
                   onClick={toggleSidebar}
                 >
@@ -144,7 +150,7 @@ export default function NavbarClient() {
               </li>
               <li>
                 <Link
-                  href=""
+                  href="/services"
                   className="block w-full text-left px-4 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
                   onClick={toggleSidebar}
                 >

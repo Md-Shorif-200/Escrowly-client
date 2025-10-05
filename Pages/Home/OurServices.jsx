@@ -1,4 +1,3 @@
-"use client";
 
 import Image from "next/image";
 import SectionTitle from "@/Components/Shared/SectionTitle";
@@ -181,7 +180,7 @@ export default function OurServices() {
 
               {/* Details Button */}
               <div className=" p-4 flex justify-end ">
-                <Link href={`/${service.id}`} className="primary_btn transition-colors duration-300">
+                <Link href={`/services/${service.id}`} className="secondary_btn ">
                   Details
                 </Link>
               </div>
