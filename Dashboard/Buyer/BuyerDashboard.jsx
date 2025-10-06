@@ -1,14 +1,8 @@
-"use client";
 import DashboardTable from "@/Components/DashboardTable";
-import {
-  FaWallet,
-  FaShoppingCart,
-  FaCheckCircle,
-  FaClock,
-  FaUser,
-  FaArrowUp,
-  FaArrowDown,
-} from "react-icons/fa";
+import Link from "next/link";
+import { FaUser } from "react-icons/fa";
+import { IoNotificationsSharp } from "react-icons/io5";
+
 
 export default function BuyerDashboard() {
   const buyerInfo = {
@@ -19,12 +13,6 @@ export default function BuyerDashboard() {
     verificationStatus: "Verified", // Verified, Pending, Not Verified
   };
 
-  const walletInfo = {
-    balance: 25500,
-    pending: 5000,
-    lastTransaction: "+৳2,000",
-    transactionType: "deposit", // deposit or withdraw
-  };
 
   const orderStats = {
     totalOrders: 45,
@@ -56,17 +44,16 @@ export default function BuyerDashboard() {
                 <span className="text-green-100 text-sm">
                   {buyerInfo.mobile}
                 </span>
-                {/* <span className="bg-white/20 px-2 py-1 rounded text-xs inline-block mt-1 sm:mt-0">
-                  {buyerInfo.verificationStatus === "Verified" ? "✅ Verified" : "⏳ " + buyerInfo.verificationStatus}
-                </span> */}
+          
               </div>
             </div>
           </div>
 
-          {/* Member Since */}
+          {/* notification Since */}
           <div className="mt-4 md:mt-0 text-right">
-            <p className="text-green-100 text-sm">Member Since</p>
-            <p className="text-xl font-semibold">{buyerInfo.joinDate}</p>
+                 <Link href='/buyer-dashboard/buyer-notification' className="cursor-pointer">
+                    <IoNotificationsSharp className="text-3xl"></IoNotificationsSharp>
+                 </Link>
           </div>
         </div>
       </div>
@@ -77,9 +64,7 @@ export default function BuyerDashboard() {
           <p className="text-4xl font-bold ">$25000</p>
         </div>
         <div>
-          <button className="primary_btn">
-            add money
-          </button>
+          <button className="primary_btn">add money</button>
         </div>
       </div>
 
@@ -91,31 +76,34 @@ export default function BuyerDashboard() {
           </div>
         </div>
 
-           <div className="bg-white rounded-lg shadow p-6 ">
+        <div className="bg-white rounded-lg shadow p-6 ">
           <div>
             <h1 className="text-xl font-normal capitalize ">pending Orders</h1>
             <p className="text-3xl font-semibold ">3</p>
           </div>
         </div>
 
-
-           <div className="bg-white rounded-lg shadow p-6 ">
+        <div className="bg-white rounded-lg shadow p-6 ">
           <div>
-            <h1 className="text-xl font-normal capitalize ">compleated Orders</h1>
+            <h1 className="text-xl font-normal capitalize ">
+              compleated Orders
+            </h1>
             <p className="text-3xl font-semibold ">4</p>
           </div>
         </div>
 
-           <div className="bg-white rounded-lg shadow p-6 ">
+        <div className="bg-white rounded-lg shadow p-6 ">
           <div>
-            <h1 className="text-xl font-normal capitalize ">disputted Orders</h1>
+            <h1 className="text-xl font-normal capitalize ">
+              disputted Orders
+            </h1>
             <p className="text-3xl font-semibold ">1</p>
           </div>
         </div>
       </div>
 
       {/* my purchase */}
-       <DashboardTable></DashboardTable>
+      <DashboardTable></DashboardTable>
 
       {/* Additional Summary Row */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
