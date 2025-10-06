@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 export default function Layout({ children }) {
   const pathname = usePathname();
 
-  const hideLayout = ["/log-in", "/register", "/dashboard"];
+  const hideLayout = ["/log-in", "/register", "/buyer-dashboard","/seller-dashboard"];
 
 
   const isHide = hideLayout.some(route => pathname.startsWith(route));

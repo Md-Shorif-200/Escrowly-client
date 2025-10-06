@@ -11,16 +11,12 @@ export default function NavbarClient() {
   const { isScrolled, isSidebarOpen, toggleSidebar } = useNavbarEffects();
   const pathname = usePathname();
 
-
   const applyScrollEffect = pathname === "/";
-  
-
-
 
   return (
     <>
       <nav
-         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
           applyScrollEffect
             ? isScrolled
               ? "bg-white text-[#545454] shadow-md py-4"
@@ -46,33 +42,38 @@ export default function NavbarClient() {
 
             {/* Middle: Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-6 text-sm font-medium">
-              <Link
-                href="/"
-                className="hover:text-[#10B981] transition-colors"
-              >
+              <Link href="/" className="hover:text-[#10B981] transition-colors">
                 Home
               </Link>
 
-                <Link
-                href=""
-                className="hover:text-[#10B981] transition-colors"
-              >
+              <Link href="" className="hover:text-[#10B981] transition-colors">
                 About
               </Link>
 
-                <Link
+              <Link
                 href="/services"
                 className="hover:text-[#10B981] transition-colors"
               >
                 Services
               </Link>
-        
+
               <Link
-                href="/dashboard"
+                href="/buyer-dashboard"
                 className="hover:text-[#10B981] transition-colors"
               >
-                Dashboard
+                 Buyer Dashboard{" "}
               </Link>
+
+
+                 <Link
+                href="/seller-dashboard"
+                className="hover:text-[#10B981] transition-colors"
+              >
+                 Seller Dashboard{" "}
+              </Link>
+
+
+
             </div>
 
             {/* Right side: Action Buttons */}
@@ -92,9 +93,7 @@ export default function NavbarClient() {
               <Link
                 href="/register"
                 className={`px-5 py-2 text-sm font-semibold rounded transition-colors hidden sm:block ${
-                  isScrolled
-                    ? "bg_color text-white"
-                    : "bg_color text-white"
+                  isScrolled ? "bg_color text-white" : "bg_color text-white"
                 }`}
               >
                 Register
@@ -159,11 +158,21 @@ export default function NavbarClient() {
               </li>
               <li>
                 <Link
-                  href="/dashboard"
+                  href="/buyer-dashboard"
                   className="block w-full text-left px-4 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
                   onClick={toggleSidebar}
                 >
-                  Dashboard
+                  Buyer Dashboard
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/seller-dashboard"
+                  className="block w-full text-left px-4 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
+                  onClick={toggleSidebar}
+                >
+                  Seller Dashboard
                 </Link>
               </li>
             </ul>

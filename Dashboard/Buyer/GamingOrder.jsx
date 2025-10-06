@@ -4,7 +4,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { FaSpinner, FaPlus, FaUndo } from "react-icons/fa";
 
-export default function CreateOrder() {
+export default function GamingOrder() {
   const {
     register,
     handleSubmit,
@@ -25,7 +25,7 @@ export default function CreateOrder() {
     <div className="min-h-screen bg-gray-50 ">
       <div className="w-full bg-white p-6 rounded-2xl border border-gray-100">
         <h2 className="text-3xl font-bold text-gray-900 mb-8 ">
-          Create New Order
+          Create Gaming Order
         </h2>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-10">
@@ -122,74 +122,156 @@ export default function CreateOrder() {
             <div className="p-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
                 <label className={labelClasses}>
-                  Product Name <span className="text-red-500">*</span>
+                  Game Name <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
                   className={`${inputBaseClasses} ${
-                    errors.productName ? "border-red-300" : "border-gray-300"
+                    errors.gameName ? "border-red-300" : "border-gray-300"
                   }`}
-                  placeholder="Enter product name"
-                  {...register("productName", {
-                    required: "Product name is required",
+                  placeholder="Enter Game name"
+                  {...register("gameName", {
+                    required: "Game name is required",
                   })}
                 />
-                {errors.productName && (
+                {errors.gameName && (
                   <p className="mt-1 text-sm text-red-600">
-                    {errors.productName.message}
+                    {errors.gameName.message}
                   </p>
                 )}
               </div>
 
+           <div>
+                <label className={labelClasses}>
+                  Game Id/UID <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  className={`${inputBaseClasses} ${
+                    errors.gameUID ? "border-red-300" : "border-gray-300"
+                  }`}
+                  placeholder="Enter Game UID"
+                  {...register("gameUID", {
+                    required: "Game UID  is required",
+                  })}
+                />
+                {errors.gameUID && (
+                  <p className="mt-1 text-sm text-red-600">
+                    {errors.gameUID.message}
+                  </p>
+                )}
+              </div>
+
+
+              
               <div>
                 <label className={labelClasses}>
-                  Category <span className="text-red-500">*</span>
+                  Account Level <span className="text-red-500">*</span>
                 </label>
                 <select
                   className={`${inputBaseClasses} ${
-                    errors.category ? "border-red-300" : "border-gray-300"
+                    errors.accountLevel ? "border-red-300" : "border-gray-300"
                   }`}
-                  {...register("category", {
-                    required: "Please select a category",
+                  {...register("accountLevel", {
+                    required: "Please select a Level",
                   })}
                 >
-                  <option value="">Select Category</option>
-                  <option value="electronics">Electronics</option>
-                  <option value="accessories">Accessories</option>
-                  <option value="others">Others</option>
+                  <option value="">Select Account Level</option>
+                  <option value="level_1">level-1</option>
+                  <option value="level_2">level-2</option>
+                  <option value="level_3">level-3</option>
                 </select>
-                {errors.category && (
+                {errors.accountLevel && (
                   <p className="mt-1 text-sm text-red-600">
-                    {errors.category.message}
+                    {errors.accountLevel.message}
                   </p>
                 )}
               </div>
 
-              <div>
+
+                 <div>
                 <label className={labelClasses}>
-                  Quantity <span className="text-red-500">*</span>
+                  Rank/Tier <span className="text-red-500">*</span>
+                </label>
+                <select
+                  className={`${inputBaseClasses} ${
+                    errors.accountRank ? "border-red-300" : "border-gray-300"
+                  }`}
+                  {...register("accountRank", {
+                    required: "Please select a Level",
+                  })}
+                >
+                  <option value="">Select Account Rank</option>
+                  <option value="bronze">Bronze</option>
+                  <option value="silver">Silver</option>
+                  <option value="gold">Gold</option>
+                </select>
+                {errors.accountRank && (
+                  <p className="mt-1 text-sm text-red-600">
+                    {errors.accountRank.message}
+                  </p>
+                )}
+              </div>
+
+
+                 <div>
+                <label className={labelClasses}>
+                  Skins/Special <span className="text-red-500">*</span>
                 </label>
                 <input
-                  type="number"
+                  type="text"
                   className={`${inputBaseClasses} ${
-                    errors.quantity ? "border-red-300" : "border-gray-300"
+                    errors.gameSkin ? "border-red-300" : "border-gray-300"
                   }`}
-                  placeholder="Enter quantity"
-                  {...register("quantity", {
-                    required: "Quantity is required",
-                    min: { value: 1, message: "Minimum 1 item required" },
+                  placeholder=" Game Skin"
+                  {...register("gameSkin", {
+                    required: " Skin is required",
                   })}
                 />
-                {errors.quantity && (
+                {errors.gameSkin && (
                   <p className="mt-1 text-sm text-red-600">
-                    {errors.quantity.message}
+                    {errors.gameSkin.message}
                   </p>
                 )}
               </div>
 
+
+     <div>
+  <label className={labelClasses}>
+    Link Email/Fb? 
+  </label>
+
+  <div className="mt-2 flex gap-4">
+    <label className="inline-flex items-center gap-2">
+      <input
+        type="radio"
+        value="Yes"
+        {...register("email_fb_link", { required: "Please select Yes or No" })}
+        className="form-radio text-blue-500"
+      />
+      Yes
+    </label>
+
+    <label className="inline-flex items-center gap-2">
+      <input
+        type="radio"
+        value="No"
+        {...register("email_fb_link", { required: "Please select Yes or No" })}
+        className="form-radio text-blue-500"
+      />
+      No
+    </label>
+  </div>
+
+  {errors.email_fb_link && (
+    <p className="mt-1 text-sm text-red-600">{errors.email_fb_link.message}</p>
+  )}
+</div>
+
+
               <div>
                 <label className={labelClasses}>
-                  Expected Price (৳) <span className="text-red-500">*</span>
+                   Price  <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="number"
@@ -209,30 +291,30 @@ export default function CreateOrder() {
                 )}
               </div>
 
-              <div className="sm:col-span-2">
+        <div>
                 <label className={labelClasses}>
-                  Delivery Address <span className="text-red-500">*</span>
+                  Delivery Method <span className="text-red-500">*</span>
                 </label>
-                <textarea
-                  rows="3"
+                <select
                   className={`${inputBaseClasses} ${
-                    errors.address ? "border-red-300" : "border-gray-300"
+                    errors.deliveryMethod ? "border-red-300" : "border-gray-300"
                   }`}
-                  placeholder="Enter complete delivery address"
-                  {...register("address", {
-                    required: "Address is required",
-                    minLength: {
-                      value: 10,
-                      message: "Please provide a complete address",
-                    },
+                  {...register("deliveryMethod", {
+                    required: "Please select a Delivery Method",
                   })}
-                />
-                {errors.address && (
+                >
+                  <option value="">Select Delivery Method</option>
+                  <option value="coc">cash on delevry</option>
+             
+                </select>
+                {errors.deliveryMethod && (
                   <p className="mt-1 text-sm text-red-600">
-                    {errors.address.message}
+                    {errors.deliveryMethod.message}
                   </p>
                 )}
               </div>
+
+          
 
               <div className="sm:col-span-2">
                 <label className={labelClasses}>
@@ -246,6 +328,8 @@ export default function CreateOrder() {
                   {...register("additionalRequirements")}
                 />
               </div>
+
+
             </div>
           </div>
 

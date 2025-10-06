@@ -10,13 +10,13 @@ import {
   FaArrowDown,
 } from "react-icons/fa";
 
-export default function BuyerDashboard() {
+export default function SellerDashboard() {
   const buyerInfo = {
     name: "Mahmud Hasan",
     uid: "BUY-X7K9M2",
     mobile: "01712345678",
     joinDate: "15 Jan 2024",
-    verificationStatus: "Verified", // Verified, Pending, Not Verified
+    verificationStatus: "Verified", 
   };
 
   const walletInfo = {
