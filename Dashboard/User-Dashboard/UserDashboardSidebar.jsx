@@ -29,7 +29,7 @@ export default function UserDashboardSidebar() {
   const pathname = usePathname();
 
   const menuItems = [
-    { name: "Dashboard", icon: MdDashboard, path: "/buyer-dashboard" },
+    { name: "Dashboard", icon: MdDashboard, path: "/user-dashboard" },
     {
       name: "Orders",
       icon: FaShoppingCart,
