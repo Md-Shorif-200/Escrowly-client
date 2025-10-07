@@ -5,12 +5,13 @@ import { FaEye, FaEyeSlash, FaEnvelope, FaLock, FaArrowRight, FaSpinner } from '
 import { FcGoogle } from 'react-icons/fc';
 import { FaGithub } from 'react-icons/fa';
 import Link from 'next/link';
+import useAuth from '@/CustomHooks/useAuth';
 
 export default function LogIn() {
 
   const [showPassword, setShowPassword] = useState(false);
 
-  
+  const {logIn} = useAuth()
 
   const {
     register,
@@ -21,6 +22,13 @@ export default function LogIn() {
 
   const onSubmit = async (data) => {
  
+
+     try {
+  const result = await logIn(data.email,data.password)      
+     } catch (error) {
+      console.log(error);
+      
+     }
     
 
   };

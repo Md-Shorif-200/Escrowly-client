@@ -2,16 +2,37 @@
 
 import { useNavbarEffects } from "@/CustomHooks/useNavbarEffects";
 import Link from "next/link";
-import React from "react";
-import { FaChevronDown, FaBars, FaTimes } from "react-icons/fa";
+import React, { useState, useRef, useEffect } from "react";
+import { FaBars, FaTimes, FaUserCircle } from "react-icons/fa";
 import Container from "../Shared/Container";
 import { usePathname } from "next/navigation";
+import useAuth from "@/CustomHooks/useAuth";
+import Image from "next/image";
 
 export default function NavbarClient() {
   const { isScrolled, isSidebarOpen, toggleSidebar } = useNavbarEffects();
   const pathname = usePathname();
+  const { user, logOut } = useAuth();
 
   const applyScrollEffect = pathname === "/";
+  
+  // State for dropdown
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  // Toggle dropdown
+  const toggleDropdown = () => setIsDropdownOpen((prev) => !prev);
+
+  // Close dropdown if clicked outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    window.addEventListener("click", handleClickOutside);
+    return () => window.removeEventListener("click", handleClickOutside);
+  }, []);
 
   return (
     <>
@@ -45,54 +66,79 @@ export default function NavbarClient() {
               <Link href="/" className="hover:text-[#10B981] transition-colors">
                 Home
               </Link>
-
               <Link href="" className="hover:text-[#10B981] transition-colors">
                 About
               </Link>
-
-              <Link
-                href="/services"
-                className="hover:text-[#10B981] transition-colors"
-              >
+              <Link href="/services" className="hover:text-[#10B981] transition-colors">
                 Services
               </Link>
-
-              <Link
-                href="user-dashboard"
-                className="hover:text-[#10B981] transition-colors"
-              >
-                  Dashboard{" "}
-              </Link>
-
-
-             
-
-
-
+              {/* <Link href="user-dashboard" className="hover:text-[#10B981] transition-colors">
+                Dashboard
+              </Link> */}
             </div>
 
-            {/* Right side: Action Buttons */}
-            <div className="flex items-center space-x-4">
+            {/* Right side */}
+            <div className="flex items-center space-x-8">
               <Link
                 href="/seller"
                 className="hidden md:block text-sm font-medium hover:text-[#10B981] transition-colors"
               >
                 Become a Seller
               </Link>
-              <Link
-                href="/log-in"
-                className="text-sm font-medium hover:text-[#10B981] transition-colors"
-              >
-                Log in
-              </Link>
-              <Link
-                href="/register"
-                className={`px-5 py-2 text-sm font-semibold rounded transition-colors hidden sm:block ${
-                  isScrolled ? "bg_color text-white" : "bg_color text-white"
-                }`}
-              >
-                Register
-              </Link>
+
+              <div className="relative" ref={dropdownRef}>
+                {user ? (
+                  <>
+                    <FaUserCircle
+                      className="text-3xl cursor-pointer"
+                      onClick={toggleDropdown}
+                    />
+
+                    {isDropdownOpen && (
+                      <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-md border border-gray-200 z-50">
+                        <Link
+                          href="/user-dashboard"
+                          className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors"
+                          onClick={() => setIsDropdownOpen(false)}
+                        >
+                          Dashboard
+                        </Link>
+                        <Link
+                          href="/profile"
+                          className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors"
+                          onClick={() => setIsDropdownOpen(false)}
+                        >
+                          Profile
+                        </Link>
+                        <button
+                          onClick={() => {
+                            logOut?.();
+                            setIsDropdownOpen(false);
+                          }}
+                          className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors"
+                        >
+                          Logout
+                        </button>
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <div className="flex gap-6 items-center">
+                    <Link
+                      href="/log-in"
+                      className="text-sm font-medium hover:text-[#10B981] transition-colors"
+                    >
+                      Log in
+                    </Link>
+                    <Link
+                      href="/register"
+                      className={`px-5 py-2 text-sm font-semibold rounded transition-colors hidden sm:block bg_color text-white`}
+                    >
+                      Register
+                    </Link>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </Container>
@@ -105,12 +151,9 @@ export default function NavbarClient() {
         }`}
       >
         <div className="flex flex-col h-full">
-          {/* Sidebar Header with Logo and Close Icon */}
           <div className="flex items-center justify-between p-5 border-b border-gray-200">
             <Link href="/" className="flex items-center">
-              <span className="text-2xl font-extrabold text-gray-800">
-                Escrowly
-              </span>
+              <span className="text-2xl font-extrabold text-gray-800">Escrowly</span>
             </Link>
             <button
               onClick={toggleSidebar}
@@ -121,7 +164,6 @@ export default function NavbarClient() {
             </button>
           </div>
 
-          {/* Sidebar Navigation */}
           <nav className="flex-grow px-2 py-4">
             <ul className="space-y-2">
               <li>
@@ -148,24 +190,21 @@ export default function NavbarClient() {
                   className="block w-full text-left px-4 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
                   onClick={toggleSidebar}
                 >
-                  Serveices
+                  Services
                 </Link>
               </li>
               <li>
-                <Link
+                {/* <Link
                   href="user-dashboard"
                   className="block w-full text-left px-4 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
                   onClick={toggleSidebar}
                 >
-                   Dashboard
-                </Link>
+                  Dashboard
+                </Link> */}
               </li>
-
-           
             </ul>
           </nav>
 
-          {/* Sidebar Footer */}
           <div className="p-5 border-t border-gray-200 space-y-4">
             <Link
               href="/seller"

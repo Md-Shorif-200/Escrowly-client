@@ -3,10 +3,12 @@ import Link from "next/link";
 import { useState } from "react";
 
 import { useForm } from "react-hook-form";
-import { FaArrowRight, FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaArrowRight, FaEye, FaEyeSlash, FaSpinner } from "react-icons/fa";
 
 import img_1 from "../../public/Lottie/Shopping Green.json";
 import Lottie from "lottie-react";
+import useAuth from "@/CustomHooks/useAuth";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const {
@@ -16,10 +18,22 @@ const Register = () => {
     formState: { errors, isSubmitting },
   } = useForm();
   const [showPassword, setshowPassword] = useState(false);
+  const {creatUser} = useAuth()
 
-  //   form submit function
 
-  const onsubmit = async (data) => {};
+
+  const onsubmit = async (data) => {
+
+    console.log(data);
+       try {
+         const result = await creatUser(data.email,data.password)
+       } catch (error) {
+        console.log(error);
+        toast.error(error)
+        
+       }
+     
+  };
 
   return (
     <div className="bg_color w-full min-h-screen flex justify-center items-center z-0 py-10 md:py-14 lg:py-20 ">
