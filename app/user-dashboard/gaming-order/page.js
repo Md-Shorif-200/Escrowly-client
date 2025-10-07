@@ -1,4 +1,4 @@
-import GamingOrder from "@/Dashboard/Buyer/GamingOrder";
+import GamingOrder from "@/Dashboard/User-Dashboard/GamingOrder";
 
 
 export default function page() {

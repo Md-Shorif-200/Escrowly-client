@@ -58,19 +58,14 @@ export default function NavbarClient() {
               </Link>
 
               <Link
-                href="/buyer-dashboard"
+                href="user-dashboard"
                 className="hover:text-[#10B981] transition-colors"
               >
-                 Buyer Dashboard{" "}
+                  Dashboard{" "}
               </Link>
 
 
-                 <Link
-                href="/seller-dashboard"
-                className="hover:text-[#10B981] transition-colors"
-              >
-                 Seller Dashboard{" "}
-              </Link>
+             
 
 
 
@@ -158,23 +153,15 @@ export default function NavbarClient() {
               </li>
               <li>
                 <Link
-                  href="/buyer-dashboard"
+                  href="user-dashboard"
                   className="block w-full text-left px-4 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
                   onClick={toggleSidebar}
                 >
-                  Buyer Dashboard
+                   Dashboard
                 </Link>
               </li>
 
-              <li>
-                <Link
-                  href="/seller-dashboard"
-                  className="block w-full text-left px-4 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
-                  onClick={toggleSidebar}
-                >
-                  Seller Dashboard
-                </Link>
-              </li>
+           
             </ul>
           </nav>
 

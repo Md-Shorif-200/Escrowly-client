@@ -1,4 +1,4 @@
-import CreatOrder from '@/Dashboard/Buyer/CreatOrder'
+import CreatOrder from '@/Dashboard/User-Dashboard/CreatOrder'
 
 
 export default function page() {

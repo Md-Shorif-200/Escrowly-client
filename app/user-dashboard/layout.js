@@ -1,5 +1,5 @@
+import UserDashboardSidebar from "@/Dashboard/User-Dashboard/UserDashboardSidebar";
 
-import SellerDashboardSidebar from "@/Dashboard/Seller/SellerDashboardSidebar";
 
 
 
@@ -7,7 +7,7 @@ export default function DashboardLayout({ children }) {
   return (
     <div className="relative min-h-screen bg-gray-50">
  
-      <SellerDashboardSidebar />
+      <UserDashboardSidebar />
 
       {/* Main Content */}
    

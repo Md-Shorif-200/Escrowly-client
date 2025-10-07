@@ -4,7 +4,7 @@ import { FaUser } from "react-icons/fa";
 import { IoNotificationsSharp } from "react-icons/io5";
 
 
-export default function BuyerDashboard() {
+export default function UserDashboard() {
   const buyerInfo = {
     name: "Mahmud Hasan",
     uid: "BUY-X7K9M2",

@@ -1,6 +1,4 @@
-'use client';
 
-import React from 'react';
 import { FaEye, FaEdit, FaTrash } from 'react-icons/fa';
 
 // Dummy Orders JSON Data (without buyerName & paymentStatus)
@@ -47,7 +45,7 @@ const orders = [
   },
 ];
 
-export default function MyOrders() {
+export default function MyPurchases() {
   // Status badge colors
   const getStatusColor = (status) => {
     switch (status) {

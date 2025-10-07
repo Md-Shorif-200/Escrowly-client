@@ -1,4 +1,4 @@
-import BuyerNotification from '@/Dashboard/Buyer/BuyerNotification'
+import BuyerNotification from '@/Dashboard/User-Dashboard/BuyerNotification'
 import React from 'react'
 
 export default function page() {

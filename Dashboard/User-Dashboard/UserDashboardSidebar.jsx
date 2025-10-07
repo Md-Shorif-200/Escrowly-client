@@ -14,43 +14,60 @@ import {
   FaShoppingCart,
   FaChevronDown,
   FaChevronUp,
+  FaStar,
 } from "react-icons/fa";
+import { MdDashboard } from "react-icons/md";
+import { BsShieldShaded } from "react-icons/bs";
+import { IoSettingsSharp } from "react-icons/io5";
 
-export default function SellerDashboardSidebar() {
+
+
+
+export default function UserDashboardSidebar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [openMenus, setOpenMenus] = useState({});
   const pathname = usePathname();
 
   const menuItems = [
-    { name: "Dashboard", icon: FaHome, path: "/buyer-dashboard" },
+    { name: "Dashboard", icon: MdDashboard, path: "/buyer-dashboard" },
     {
       name: "Orders",
       icon: FaShoppingCart,
       children: [
-        { name: "Selling Post", path: "/seller-dashboard/selling-post" },
-        // { name: "Gaming Order", path: "/buyer-dashboard/gaming-order" },
-        // { name: "My Orders", path: "/buyer-dashboard/my-orders" },
+        { name: "Create Order", path: "/user-dashboard/create-orders" },
+        { name: "Gaming Order", path: "/user-dashboard/gaming-order" },
+        { name: "Selling Post", path: "/user-dashboard/selling-post" },
+        { name: "My Purchases", path: "/user-dashboard/my-purchases" },
+        { name: "My Sales", path: "/user-dashboard/my-sales" },
         
       ],
     },
-    // {
-    //   name: "Wallet",
-    //   icon: FaWallet,
-    //   children: [
-    //     { name: "Withdraw", path: "/buyer-dashboard/wallet/withdraw" },
-    //     { name: "Transaction History", path: "/buyer-dashboard/wallet/history" },
-    //   ],
-    // },
     {
-      name: "Account",
-      icon: FaUser,
+      name: "Wallet",
+      icon: FaWallet,
       children: [
-        { name: "Profile", path: "/buyer-dashboard/profile" },
-        // { name: "KYC Verification", path: "/buyer-dashboard/kyc" },
+        { name: "Add Money", path: "/user-dashboard/wallet/withdraw" },
+        { name: "Withdraw", path: "/user-dashboard/wallet/withdraw" },
+        { name: "Transaction History", path: "/user-dashboard/wallet/history" },
       ],
     },
-    // { name: "Messages", icon: , path: "/buyer-dashboard/messages" },
+  
+
+        {
+      name: "Messages",
+      icon: FaComments,
+      children: [
+        { name: "Chat", path: "/user-dashboard/profile" },
+        // { name: "KYC Verification", path: "/user-dashboard/kyc" },
+      ],
+    },
+
+    { name: "Dispute Center", icon: BsShieldShaded, path: "/" },
+    { name: "Ratings & Review", icon: FaStar, path: "/" },
+    { name: "Settings", icon: IoSettingsSharp, path: "/" },
     { name: "Home", icon: FaHome, path: "/" },
+
+
   ];
 
   useEffect(() => {
