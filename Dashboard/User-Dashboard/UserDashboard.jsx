@@ -51,7 +51,7 @@ export default function UserDashboard() {
 
           {/* notification Since */}
           <div className="mt-4 md:mt-0 text-right">
-                 <Link href='/buyer-dashboard/buyer-notification' className="cursor-pointer">
+                 <Link href='/user-dashboard/user-notification' className="cursor-pointer">
                     <IoNotificationsSharp className="text-3xl"></IoNotificationsSharp>
                  </Link>
           </div>

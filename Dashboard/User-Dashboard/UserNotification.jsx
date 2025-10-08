@@ -1,4 +1,3 @@
-"use client";
 
 import React from "react";
 import {
@@ -14,7 +13,7 @@ import {
   FaWallet,
 } from "react-icons/fa";
 
-export default function BuyerNotification() {
+export default function UserNotification() {
   const notifications = [
     {
       id: 1,

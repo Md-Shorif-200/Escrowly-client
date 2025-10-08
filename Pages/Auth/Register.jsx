@@ -9,6 +9,7 @@ import img_1 from "../../public/Lottie/Shopping Green.json";
 import Lottie from "lottie-react";
 import useAuth from "@/CustomHooks/useAuth";
 import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const Register = () => {
   const {
@@ -18,7 +19,8 @@ const Register = () => {
     formState: { errors, isSubmitting },
   } = useForm();
   const [showPassword, setshowPassword] = useState(false);
-  const {creatUser} = useAuth()
+  const {creatUser} = useAuth();
+  const router = useRouter();
 
 
 
@@ -27,6 +29,8 @@ const Register = () => {
     console.log(data);
        try {
          const result = await creatUser(data.email,data.password)
+         toast.success('Account Created succesfully!',{duration:2000});
+         router.push('/')
        } catch (error) {
         console.log(error);
         toast.error(error)

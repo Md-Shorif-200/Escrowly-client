@@ -7,7 +7,10 @@ import { FaBars, FaTimes, FaUserCircle } from "react-icons/fa";
 import Container from "../Shared/Container";
 import { usePathname } from "next/navigation";
 import useAuth from "@/CustomHooks/useAuth";
-import Image from "next/image";
+import { FaUser, FaSignOutAlt } from "react-icons/fa";
+
+import useToastNotification from "@/CustomHooks/useToastNotification";
+import { MdDashboard } from "react-icons/md";
 
 export default function NavbarClient() {
   const { isScrolled, isSidebarOpen, toggleSidebar } = useNavbarEffects();
@@ -15,8 +18,9 @@ export default function NavbarClient() {
   const { user, logOut } = useAuth();
 
   const applyScrollEffect = pathname === "/";
-  
-  // State for dropdown
+  const { successToast, errorToast, confirmToast } = useToastNotification();
+
+  // Dropdown state
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -34,6 +38,19 @@ export default function NavbarClient() {
     return () => window.removeEventListener("click", handleClickOutside);
   }, []);
 
+
+    const handleLogout = () => {
+      confirmToast("Are you sure you want to log out?", async () => {
+        try {
+          await logOut();
+          successToast("Logged out successfully!");
+        } catch (err) {
+          errorToast("Logout failed!");
+        }
+      });
+    };
+
+
   return (
     <>
       <nav
@@ -47,7 +64,7 @@ export default function NavbarClient() {
       >
         <Container>
           <div className="flex items-center justify-between">
-            {/* Left side: Menu Icon (mobile) + Logo */}
+            {/* Left: Menu Icon + Logo */}
             <div className="flex items-center space-x-4">
               <button
                 onClick={toggleSidebar}
@@ -69,15 +86,15 @@ export default function NavbarClient() {
               <Link href="" className="hover:text-[#10B981] transition-colors">
                 About
               </Link>
-              <Link href="/services" className="hover:text-[#10B981] transition-colors">
+              <Link
+                href="/services"
+                className="hover:text-[#10B981] transition-colors"
+              >
                 Services
               </Link>
-              {/* <Link href="user-dashboard" className="hover:text-[#10B981] transition-colors">
-                Dashboard
-              </Link> */}
             </div>
 
-            {/* Right side */}
+            {/* Right: User or Auth Buttons */}
             <div className="flex items-center space-x-8">
               <Link
                 href="/seller"
@@ -95,31 +112,37 @@ export default function NavbarClient() {
                     />
 
                     {isDropdownOpen && (
-                      <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-md border border-gray-200 z-50">
-                        <Link
-                          href="/user-dashboard"
-                          className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors"
-                          onClick={() => setIsDropdownOpen(false)}
-                        >
-                          Dashboard
-                        </Link>
-                        <Link
-                          href="/profile"
-                          className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors"
-                          onClick={() => setIsDropdownOpen(false)}
-                        >
-                          Profile
-                        </Link>
-                        <button
-                          onClick={() => {
-                            logOut?.();
-                            setIsDropdownOpen(false);
-                          }}
-                          className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors"
-                        >
-                          Logout
-                        </button>
-                      </div>
+             <div className="absolute right-0 mt-2 w-52 bg-white shadow-lg rounded-md border border-gray-200 z-50">
+  <Link
+    href="/user-dashboard"
+    className="flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors"
+    onClick={() => setIsDropdownOpen(false)}
+  >
+    <MdDashboard className="text-[#10B981]" />
+    <span>Dashboard</span>
+  </Link>
+
+  <Link
+    href="/profile"
+    className="flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors"
+    onClick={() => setIsDropdownOpen(false)}
+  >
+    <FaUser className="text-[#10B981]" />
+    <span>Profile</span>
+  </Link>
+
+  <button
+    onClick={() => {
+      handleLogout();
+      setIsDropdownOpen(false);
+    }}
+    className="flex items-center gap-2 w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors"
+  >
+    <FaSignOutAlt className="text-red-500" />
+    <span>Logout</span>
+  </button>
+</div>
+
                     )}
                   </>
                 ) : (
@@ -132,7 +155,7 @@ export default function NavbarClient() {
                     </Link>
                     <Link
                       href="/register"
-                      className={`px-5 py-2 text-sm font-semibold rounded transition-colors hidden sm:block bg_color text-white`}
+                      className="px-5 py-2 text-sm font-semibold rounded transition-colors hidden sm:block bg_color text-white"
                     >
                       Register
                     </Link>
@@ -153,7 +176,9 @@ export default function NavbarClient() {
         <div className="flex flex-col h-full">
           <div className="flex items-center justify-between p-5 border-b border-gray-200">
             <Link href="/" className="flex items-center">
-              <span className="text-2xl font-extrabold text-gray-800">Escrowly</span>
+              <span className="text-2xl font-extrabold text-gray-800">
+                Escrowly
+              </span>
             </Link>
             <button
               onClick={toggleSidebar}
@@ -169,7 +194,7 @@ export default function NavbarClient() {
               <li>
                 <Link
                   href="/"
-                  className="block w-full text-left px-4 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
+                  className="block w-full px-4 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
                   onClick={toggleSidebar}
                 >
                   Home
@@ -178,7 +203,7 @@ export default function NavbarClient() {
               <li>
                 <Link
                   href=""
-                  className="block w-full text-left px-4 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
+                  className="block w-full px-4 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
                   onClick={toggleSidebar}
                 >
                   About
@@ -187,20 +212,11 @@ export default function NavbarClient() {
               <li>
                 <Link
                   href="/services"
-                  className="block w-full text-left px-4 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
+                  className="block w-full px-4 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
                   onClick={toggleSidebar}
                 >
                   Services
                 </Link>
-              </li>
-              <li>
-                {/* <Link
-                  href="user-dashboard"
-                  className="block w-full text-left px-4 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors"
-                  onClick={toggleSidebar}
-                >
-                  Dashboard
-                </Link> */}
               </li>
             </ul>
           </nav>

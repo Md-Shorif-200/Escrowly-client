@@ -16,7 +16,8 @@ import {
   FaChevronUp,
   FaStar,
 } from "react-icons/fa";
-import { MdDashboard } from "react-icons/md";
+import { MdDashboard ,MdVerified} from "react-icons/md";
+
 import { BsShieldShaded } from "react-icons/bs";
 import { IoSettingsSharp } from "react-icons/io5";
 
@@ -42,6 +43,7 @@ export default function UserDashboardSidebar() {
         
       ],
     },
+    { name: "Kyc Verification", icon: MdVerified, path: "/user-dashboard/kyc-verification" },
     {
       name: "Wallet",
       icon: FaWallet,

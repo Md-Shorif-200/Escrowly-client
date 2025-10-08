@@ -1,65 +1,59 @@
-"use client"
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { FaEye, FaEyeSlash, FaEnvelope, FaLock, FaArrowRight, FaSpinner } from 'react-icons/fa';
-import { FcGoogle } from 'react-icons/fc';
-import { FaGithub } from 'react-icons/fa';
-import Link from 'next/link';
-import useAuth from '@/CustomHooks/useAuth';
+"use client";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import {
+  FaEye,
+  FaEyeSlash,
+  FaEnvelope,
+  FaLock,
+  FaArrowRight,
+  FaSpinner,
+} from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa";
+import Link from "next/link";
+import useAuth from "@/CustomHooks/useAuth";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
+import SocialLogIn from "@/Components/Shared/SocialLogIn";
 
 export default function LogIn() {
-
-  const [showPassword, setShowPassword] = useState(false);
-
-  const {logIn} = useAuth()
-
   const {
     register,
     handleSubmit,
-    formState: { errors,isSubmitting },
-    reset
+    formState: { errors, isSubmitting },
+    reset,
   } = useForm();
 
+  const [showPassword, setShowPassword] = useState(false);
+
+  const { logIn } = useAuth();
+  const router = useRouter() ;
+
   const onSubmit = async (data) => {
- 
-
-     try {
-  const result = await logIn(data.email,data.password)      
-     } catch (error) {
+    try {
+      const result = await logIn(data.email, data.password);
+      toast.success("succesfully logged in!",{duration : 2000});
+      router.push("/user-dashboard");
+    } catch (error) {
       console.log(error);
-      
-     }
-    
-
+    }
   };
 
-
-  const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+  const passwordPattern =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
   return (
     <div className="min-h-screen flex">
-
       <div className="flex-1 flex flex-col justify-center px-4 sm:px-6 lg:px-20 xl:px-24">
         <div className="mx-auto w-full max-w-sm lg:max-w-md">
-   
           <div className="mb-8">
-        
             <h2 className="text-3xl font-bold text-gray-900">Welcome back!</h2>
-   
           </div>
 
           {/* Social Login Buttons */}
-          <div className="space-y-3 mb-6">
-            <button className="w-full flex items-center justify-center px-4 py-3 border border-gray-300 rounded-lg shadow-sm bg-white hover:bg-gray-50 transition duration-150">
-              <FcGoogle className="h-5 w-5" />
-              <span className="ml-3 text-sm font-medium text-gray-700">Continue with Google</span>
-            </button>
-            
-            <button className="w-full flex items-center justify-center px-4 py-3 border border-gray-300 rounded-lg shadow-sm bg-white hover:bg-gray-50 transition duration-150">
-              <FaGithub className="h-5 w-5" />
-              <span className="ml-3 text-sm font-medium text-gray-700">Continue with GitHub</span>
-            </button>
-          </div>
+               <SocialLogIn></SocialLogIn>
+    
 
           {/* Divider */}
           <div className="relative mb-6">
@@ -67,7 +61,9 @@ export default function LogIn() {
               <div className="w-full border-t border-gray-300"></div>
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-4 bg-white text-gray-500">Or continue with email</span>
+              <span className="px-4 bg-white text-gray-500">
+                Or continue with email
+              </span>
             </div>
           </div>
 
@@ -75,7 +71,10 @@ export default function LogIn() {
           <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
             {/* Email Field */}
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Email address
               </label>
               <div className="relative">
@@ -85,27 +84,32 @@ export default function LogIn() {
                 <input
                   id="email"
                   type="email"
-                  {...register('email', {
-                    required: 'Email is required',
+                  {...register("email", {
+                    required: "Email is required",
                     pattern: {
                       value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                      message: 'Please enter a valid email address'
-                    }
+                      message: "Please enter a valid email address",
+                    },
                   })}
                   className={`block w-full pl-10 pr-3 py-3 border ${
-                    errors.email ? 'border-red-500' : 'border-gray-300'
+                    errors.email ? "border-red-500" : "border-gray-300"
                   } rounded-lg focus:ring-2 focus:ring-[#10B981] focus:border-transparent transition duration-150`}
                   placeholder="name@example.com"
                 />
               </div>
               {errors.email && (
-                <p className="mt-1 text-xs text-red-600">{errors.email.message}</p>
+                <p className="mt-1 text-xs text-red-600">
+                  {errors.email.message}
+                </p>
               )}
             </div>
 
             {/* Password Field */}
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Password
               </label>
               <div className="relative">
@@ -114,16 +118,16 @@ export default function LogIn() {
                 </div>
                 <input
                   id="password"
-                  type={showPassword ? 'text' : 'password'}
-                  {...register('password', {
-                    required: 'Password is required',
+                  type={showPassword ? "text" : "password"}
+                  {...register("password", {
+                    required: "Password is required",
                     pattern: {
                       value: passwordPattern,
-                      message: 'Password must meet all requirements'
-                    }
+                      message: "Password must meet all requirements",
+                    },
                   })}
                   className={`block w-full pl-10 pr-10 py-3 border ${
-                    errors.password ? 'border-red-500' : 'border-gray-300'
+                    errors.password ? "border-red-500" : "border-gray-300"
                   } rounded-lg focus:ring-2 focus:ring-[#10B981] focus:border-transparent transition duration-150`}
                   placeholder="Enter your password"
                 />
@@ -141,7 +145,9 @@ export default function LogIn() {
               </div>
               {errors.password && (
                 <div className="mt-1">
-                  <p className="text-xs text-red-600">{errors.password.message}</p>
+                  <p className="text-xs text-red-600">
+                    {errors.password.message}
+                  </p>
                   <ul className="mt-1 text-xs text-gray-500 list-disc list-inside">
                     <li>Minimum 8 characters</li>
                     <li>One uppercase & lowercase letter</li>
@@ -153,8 +159,10 @@ export default function LogIn() {
 
             {/* Remember Me & Forgot Password */}
             <div className="flex items-center justify-end">
-           
-              <a href="#" className="text-sm font-medium text-[#10B981] hover:text-green-600">
+              <a
+                href="#"
+                className="text-sm font-medium text-[#10B981] hover:text-green-600"
+              >
                 Forgot password?
               </a>
             </div>
@@ -168,7 +176,6 @@ export default function LogIn() {
               {isSubmitting ? (
                 <>
                   <FaSpinner></FaSpinner>
-
                   Signing in...
                 </>
               ) : (
@@ -182,8 +189,11 @@ export default function LogIn() {
 
           {/* Sign Up Link */}
           <p className="mt-6 text-center text-sm text-gray-600">
-            Don't have an account?{' '}
-            <Link href="/register" className="font-medium text-[#10B981] hover:text-green-600">
+            Don't have an account?{" "}
+            <Link
+              href="/register"
+              className="font-medium text-[#10B981] hover:text-green-600"
+            >
               Creat Account
             </Link>
           </p>
@@ -195,16 +205,17 @@ export default function LogIn() {
         <div className="absolute inset-0 bg-gradient-to-br from-[#10B981] to-green-600">
           {/* Overlay Pattern */}
           <div className="absolute inset-0 bg-black opacity-10"></div>
-          
+
           {/* Content on Image */}
           <div className="relative h-full flex flex-col justify-center items-center px-12 text-white">
             {/* You can replace this with an actual image */}
             <div className="max-w-md text-center">
               <h3 className="text-4xl font-bold mb-6">Start your journey</h3>
               <p className="text-lg mb-8 text-green-50">
-                Join thousands of users who are already managing their projects efficiently with our platform.
+                Join thousands of users who are already managing their projects
+                efficiently with our platform.
               </p>
-              
+
               {/* Feature List */}
               <div className="space-y-4 text-left">
                 <div className="flex items-center">
@@ -227,7 +238,7 @@ export default function LogIn() {
                 </div>
               </div>
             </div>
-            
+
             {/* Optional: Add an actual image */}
             {/* <img
               className="absolute inset-0 w-full h-full object-cover opacity-20"
