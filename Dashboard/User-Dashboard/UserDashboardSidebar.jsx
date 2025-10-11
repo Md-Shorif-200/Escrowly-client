@@ -108,7 +108,7 @@ export default function UserDashboardSidebar() {
                     ${
                       isParentActive(item)
                         ? "text-[#10B981]"
-                        : "text-gray-700 hover:bg-gray-100 hover:text-[#10B981]"
+                        : " hover:bg-gray-100 hover:text-[#10B981]"
                     }`}
                 >
                   <div className="flex items-center space-x-3">
@@ -127,7 +127,7 @@ export default function UserDashboardSidebar() {
                             ${
                               isActive(child.path)
                                 ? "text-[#10B981] font-semibold"
-                                : "text-gray-600 hover:bg-gray-100 hover:text-[#10B981]"
+                                : " hover:bg-gray-100 hover:text-[#10B981]"
                             }`}
                         >
                           <span className="font-normal text-sm">{child.name}</span>
@@ -147,7 +147,7 @@ export default function UserDashboardSidebar() {
                   ${
                     isActive(item.path)
                       ? "text-[#10B981] font-semibold"
-                      : "text-gray-700 hover:bg-gray-100 hover:text-[#10B981]"
+                      : " hover:bg-gray-100 hover:text-[#10B981]"
                   }`}
               >
                 <Icon className="text-lg" />
@@ -163,7 +163,7 @@ export default function UserDashboardSidebar() {
   return (
     <>
    
-      <div className="lg:hidden fixed top-0 left-0 right-0 z-40 bg-white shadow-md">
+      <div className="lg:hidden fixed top-0 left-0 right-0 z-40 bg-primary shadow-md">
         <div className="flex items-center justify-between px-4 py-3">
           <div className="flex items-center space-x-3">
             <button
@@ -185,7 +185,7 @@ export default function UserDashboardSidebar() {
         </div>
       </div>
 
-      <div className="hidden lg:flex flex-col w-64 h-screen bg-white shadow-xl fixed top-0 left-0 z-30"> {/* <-- KEY CHANGE */}
+      <div className="hidden lg:flex flex-col w-64 h-screen bg-primary shadow-xl fixed top-0 left-0 z-30"> {/* <-- KEY CHANGE */}
         <div className="px-6 pt-4 pb-4">
           <div className="flex items-center space-x-3">
             <span className="text-[#10B981] text-3xl font-bold">Escrowly</span>
@@ -196,10 +196,10 @@ export default function UserDashboardSidebar() {
 
      
       <div
-        className={`lg:hidden fixed top-0 left-0 h-full bg-white shadow-xl transition-transform duration-300 z-50 w-72 flex flex-col
+        className={`lg:hidden fixed top-0 left-0 h-full bg-primary shadow-xl transition-transform duration-300 z-50 w-72 flex flex-col
         ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}`}
       >
-        <div className="px-4 py-3 bg-white">
+        <div className="px-4 py-3 bg-primary">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <span className="text-[#10B981] text-2xl font-bold">Escrowly</span>
