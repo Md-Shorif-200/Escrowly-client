@@ -45,17 +45,17 @@ export default function UserDashboardSidebar() {
     },
     { name: "Kyc Verification", icon: MdVerified, path: "/user-dashboard/kyc-verification" },
     {
-      name: "Wallet",
+      name: "Buyer Wallet",
       icon: FaWallet,
       children: [
-        { name: "Add Money", path: "/user-dashboard/wallet/withdraw" },
+        { name: "Add Money", path: "/user-dashboard/buyer-wallet-addMoney" },
         { name: "Withdraw", path: "/user-dashboard/wallet/withdraw" },
-        { name: "Transaction History", path: "/user-dashboard/wallet/history" },
       ],
     },
-  
-
-        {
+    
+    { name: "Transaction History",icon: BsShieldShaded, path: "/user-dashboard/wallet/history" },
+    
+    {
       name: "Messages",
       icon: FaComments,
       children: [
@@ -63,7 +63,7 @@ export default function UserDashboardSidebar() {
         // { name: "KYC Verification", path: "/user-dashboard/kyc" },
       ],
     },
-
+    
     { name: "Dispute Center", icon: BsShieldShaded, path: "/" },
     { name: "Ratings & Review", icon: FaStar, path: "/" },
     { name: "Settings", icon: IoSettingsSharp, path: "/" },

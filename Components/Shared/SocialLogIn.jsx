@@ -5,7 +5,7 @@ import useToastNotification from "@/CustomHooks/useToastNotification";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-import { FaGithub, FaSpinner } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 
 const SocialLogIn = () => {
@@ -62,7 +62,7 @@ const SocialLogIn = () => {
       <button
         onClick={handleGoogleSignIn}
         disabled={loading}
-        className="w-full flex items-center justify-center px-4 py-3 border border-gray-300 rounded-lg shadow-sm bg-white hover:bg-gray-50 transition duration-150 disabled:cursor-not-allowed"
+        className="w-full flex items-center  justify-center gap-4 px-4 py-3 border border-gray-300 rounded-lg shadow-sm bg-white hover:bg-gray-50 transition duration-150 disabled:cursor-not-allowed"
       >
         {loading ? (
           <>
