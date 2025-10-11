@@ -15,7 +15,7 @@ import Link from "next/link";
 import useAuth from "@/CustomHooks/useAuth";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
-import SocialLogIn from "@/Components/Shared/SocialLogIn";
+import SocialLogIn from "@/components/Shared/SocialLogIn";
 
 export default function LogIn() {
   const {

@@ -1,4 +1,5 @@
-import DashboardTable from "@/Components/DashboardTable";
+import DashboardTable from "@/components/DashboardTable";
+import { ModeToggle } from "@/components/ModeToggle";
 import Link from "next/link";
 import { FaUser } from "react-icons/fa";
 import { IoNotificationsSharp } from "react-icons/io5";
@@ -26,11 +27,11 @@ export default function UserDashboard() {
   return (
     <div className="">
       {/* Welcome Section with User Info */}
-      <div className="bg-gradient-to-r from-[#10B981] to-green-600 rounded-xl p-6 mb-6 text-white">
+      <div className="bg-secondary rounded-xl p-6 mb-6 text-white border">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between">
           <div className="flex flex-col sm:flex-row  items-start sm:items-center space-x-4">
             {/* User Avatar */}
-            <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center">
+            <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center border ">
               <FaUser className="text-[#10B981] text-2xl" />
             </div>
 
@@ -50,7 +51,8 @@ export default function UserDashboard() {
           </div>
 
           {/* notification Since */}
-          <div className="mt-4 md:mt-0 text-right">
+          <div className="mt-4 md:mt-0 text-right flex items-center gap-6">
+                     <ModeToggle></ModeToggle>
                  <Link href='/user-dashboard/user-notification' className="cursor-pointer">
                     <IoNotificationsSharp className="text-3xl"></IoNotificationsSharp>
                  </Link>
@@ -58,7 +60,7 @@ export default function UserDashboard() {
         </div>
       </div>
 
-      <div className="bg-white rounded-lg shadow p-6 flex justify-between items-center mb-6">
+      <div className="bg-primary rounded-lg shadow p-6 flex justify-between items-center mb-6 border">
         <div>
           <h1 className="text-xl font-semibold ">Wallet balance</h1>
           <p className="text-4xl font-bold ">$25000</p>
@@ -68,22 +70,22 @@ export default function UserDashboard() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 mb-6">
-        <div className="bg-white rounded-lg shadow p-6 ">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 mb-6 border">
+        <div className="bg-primary rounded-lg shadow p-6 ">
           <div>
             <h1 className="text-xl font-normal capitalize ">Active Orders</h1>
             <p className="text-3xl font-semibold ">10</p>
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow p-6 ">
+        <div className="bg-primary rounded-lg shadow p-6 ">
           <div>
             <h1 className="text-xl font-normal capitalize ">pending Orders</h1>
             <p className="text-3xl font-semibold ">3</p>
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow p-6 ">
+        <div className="bg-primary rounded-lg shadow p-6 ">
           <div>
             <h1 className="text-xl font-normal capitalize ">
               compleated Orders
@@ -92,7 +94,7 @@ export default function UserDashboard() {
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow p-6 ">
+        <div className="bg-primary rounded-lg shadow p-6 ">
           <div>
             <h1 className="text-xl font-normal capitalize ">
               disputted Orders
@@ -108,7 +110,7 @@ export default function UserDashboard() {
       {/* Additional Summary Row */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {/* Total Spent Card */}
-        <div className="bg-white rounded-lg shadow p-6 text-gray-500">
+        <div className="bg-primary rounded-lg shadow p-6 border">
           <h3 className="text-sm font-medium">Total Spent</h3>
           <p className="text-3xl font-bold mt-2">
             ${orderStats.totalSpent.toLocaleString()}
@@ -117,7 +119,7 @@ export default function UserDashboard() {
         </div>
 
         {/* Average Order Value */}
-        <div className="bg-white shadow rounded-lg p-6 text-gray-500">
+        <div className="bg-primary shadow rounded-lg p-6 border ">
           <h3 className=" text-sm font-medium">Average Order Value</h3>
           <p className="text-3xl font-bold mt-2">
             $

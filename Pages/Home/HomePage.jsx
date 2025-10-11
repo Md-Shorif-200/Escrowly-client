@@ -1,4 +1,4 @@
-import Container from '@/Components/Shared/Container'
+import Container from '@/components/Shared/Container'
 import React from 'react'
 import Banner from './Banner'
 import OurServices from './OurServices'
