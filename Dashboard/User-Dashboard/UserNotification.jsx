@@ -78,9 +78,9 @@ export default function UserNotification() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 ">
-      <div className="w-full bg-white rounded-2xl shadow-md p-6 border border-gray-100">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6">
+    <div className="min-h-screen ">
+      <div className="w-full bg-card rounded-2xl shadow-md p-6 border border-card-border">
+        <h2 className="text-2xl font-bold text-primary-text mb-6">
           Notifications
         </h2>
 
@@ -88,12 +88,12 @@ export default function UserNotification() {
           {notifications.map((note) => (
             <div
               key={note.id}
-              className="flex items-start gap-4 p-4 border border-gray-100 rounded-xl hover:shadow-sm transition bg-gray-50"
+              className="flex items-start gap-4 p-4 border border-card-border rounded-xl hover:shadow-sm transition bg-card"
             >
               <div className="flex-shrink-0">{note.icon}</div>
 
               <div>
-                <p className="text-gray-800 font-medium">{note.title}</p>
+                <p className="text-primary-text font-medium">{note.title}</p>
                 <p className="text-sm text-gray-500 mt-1">{note.time}</p>
               </div>
             </div>

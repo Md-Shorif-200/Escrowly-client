@@ -9,8 +9,7 @@ import {
   FaArrowRight,
   FaSpinner,
 } from "react-icons/fa";
-import { FcGoogle } from "react-icons/fc";
-import { FaGithub } from "react-icons/fa";
+
 import Link from "next/link";
 import useAuth from "@/CustomHooks/useAuth";
 import { useRouter } from "next/navigation";

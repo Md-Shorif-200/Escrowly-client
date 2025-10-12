@@ -17,22 +17,24 @@ export default function GamingOrder() {
     await new Promise((resolve) => setTimeout(resolve, 2000));
   };
 
-  const labelClasses = "block text-sm font-medium text-gray-700 mb-2";
+  const labelClasses = "block text-sm font-medium text-primary-text mb-2";
   const inputBaseClasses =
-    "w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#10B981] focus:border-[#10B981]";
+    "w-full px-3 py-2 border rounded-lg text-primary-text focus:outline-none focus:ring-2 focus:ring-[#10B981] focus:border-[#10B981]";
+
+      const section_heading = "bg-[#10B981]  px-4 py-2 rounded-t-lg text-lg font-semibold text-white";
 
   return (
-    <div className="min-h-screen bg-gray-50 ">
-      <div className="w-full bg-white p-6 rounded-2xl border border-gray-100">
-        <h2 className="text-3xl font-bold text-gray-900 mb-8 ">
+    <div className="min-h-screen  ">
+      <div className="w-full bg-card p-6 rounded-2xl border border-card-border">
+        <h2 className="text-3xl font-bold text-primary-text mb-8 ">
           Create Gaming Order
         </h2>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-10">
           {/* Buyer Information Section */}
-          <div className="border border-gray-200 rounded-lg">
-            <div className="bg-[#10B981]  px-4 py-2 rounded-t-lg">
-              <h3 className="text-lg font-semibold text-white">
+          <div className="border border-card-border rounded-lg">
+            <div className={section_heading}>
+              <h3 className="">
                 Buyer Information
               </h3>
             </div>
@@ -45,7 +47,7 @@ export default function GamingOrder() {
                 <input
                   type="text"
                   className={`${inputBaseClasses} ${
-                    errors.buyerName ? "border-red-300" : "border-gray-300"
+                    errors.buyerName ? "border-red-300" : "border-card-border"
                   }`}
                   placeholder="Enter buyer's full name"
                   {...register("buyerName", {
@@ -70,7 +72,7 @@ export default function GamingOrder() {
                 <input
                   type="tel"
                   className={`${inputBaseClasses} ${
-                    errors.phoneNumber ? "border-red-300" : "border-gray-300"
+                    errors.phoneNumber ? "border-red-300" : "border-card-border"
                   }`}
                   placeholder="e.g., 01712345678"
                   {...register("phoneNumber", {
@@ -95,7 +97,7 @@ export default function GamingOrder() {
                 <input
                   type="text"
                   className={`${inputBaseClasses} ${
-                    errors.buyerUID ? "border-red-300" : "border-gray-300"
+                    errors.buyerUID ? "border-red-300" : "border-card-border"
                   }`}
                   placeholder="Enter buyer's UID"
                   {...register("buyerUID", {
@@ -112,9 +114,9 @@ export default function GamingOrder() {
           </div>
 
           {/* Order Information Section */}
-          <div className="border border-gray-200 rounded-lg">
-            <div className="bg-[#10B981]  px-4 py-2 rounded-t-lg">
-              <h3 className="text-lg font-semibold text-white">
+          <div className="border border-card-border rounded-lg">
+            <div className={section_heading}>
+              <h3 className="">
                 Order Information
               </h3>
             </div>
@@ -127,7 +129,7 @@ export default function GamingOrder() {
                 <input
                   type="text"
                   className={`${inputBaseClasses} ${
-                    errors.gameName ? "border-red-300" : "border-gray-300"
+                    errors.gameName ? "border-red-300" : "border-card-border"
                   }`}
                   placeholder="Enter Game name"
                   {...register("gameName", {
@@ -148,7 +150,7 @@ export default function GamingOrder() {
                 <input
                   type="text"
                   className={`${inputBaseClasses} ${
-                    errors.gameUID ? "border-red-300" : "border-gray-300"
+                    errors.gameUID ? "border-red-300" : "border-card-border"
                   }`}
                   placeholder="Enter Game UID"
                   {...register("gameUID", {
@@ -170,7 +172,7 @@ export default function GamingOrder() {
                 </label>
                 <select
                   className={`${inputBaseClasses} ${
-                    errors.accountLevel ? "border-red-300" : "border-gray-300"
+                    errors.accountLevel ? "border-red-300" : "border-card-border"
                   }`}
                   {...register("accountLevel", {
                     required: "Please select a Level",
@@ -195,7 +197,7 @@ export default function GamingOrder() {
                 </label>
                 <select
                   className={`${inputBaseClasses} ${
-                    errors.accountRank ? "border-red-300" : "border-gray-300"
+                    errors.accountRank ? "border-red-300" : "border-card-border"
                   }`}
                   {...register("accountRank", {
                     required: "Please select a Level",
@@ -221,7 +223,7 @@ export default function GamingOrder() {
                 <input
                   type="text"
                   className={`${inputBaseClasses} ${
-                    errors.gameSkin ? "border-red-300" : "border-gray-300"
+                    errors.gameSkin ? "border-red-300" : "border-card-border"
                   }`}
                   placeholder=" Game Skin"
                   {...register("gameSkin", {
@@ -276,7 +278,7 @@ export default function GamingOrder() {
                 <input
                   type="number"
                   className={`${inputBaseClasses} ${
-                    errors.price ? "border-red-300" : "border-gray-300"
+                    errors.price ? "border-red-300" : "border-card-border"
                   }`}
                   placeholder="Enter price"
                   {...register("price", {
@@ -297,7 +299,7 @@ export default function GamingOrder() {
                 </label>
                 <select
                   className={`${inputBaseClasses} ${
-                    errors.deliveryMethod ? "border-red-300" : "border-gray-300"
+                    errors.deliveryMethod ? "border-red-300" : "border-card-border"
                   }`}
                   {...register("deliveryMethod", {
                     required: "Please select a Delivery Method",
@@ -323,7 +325,7 @@ export default function GamingOrder() {
                 </label>
                 <textarea
                   rows="3"
-                  className={`${inputBaseClasses} border-gray-300`}
+                  className={`${inputBaseClasses} border-card-border`}
                   placeholder="Any special requirements or notes for the order"
                   {...register("additionalRequirements")}
                 />
@@ -338,7 +340,7 @@ export default function GamingOrder() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`w-[180px] py-3 px-4 flex justify-center items-center rounded-lg shadow-sm text-white font-medium transition duration-200
+              className={`w-[180px] py-3 px-4 flex justify-center items-center rounded-lg shadow-sm text-white font-medium transition duration-200 cursor-pointer
                 ${
                   isSubmitting
                     ? "bg-gray-400 cursor-not-allowed"
@@ -362,7 +364,7 @@ export default function GamingOrder() {
               type="button"
               onClick={() => reset()}
               disabled={isSubmitting}
-              className="py-3 px-6 flex justify-center items-center border border-gray-300 rounded-lg text-gray-700 font-medium bg-white hover:bg-gray-50 transition duration-200 disabled:opacity-50"
+              className="py-3 px-6 flex justify-center items-center border border-gray-300 rounded-lg text-gray-700 font-medium bg-white hover:bg-gray-50 transition duration-200 disabled:opacity-50 cursor-pointer"
             >
               <FaUndo className="mr-2" />
               Reset

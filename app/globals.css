@@ -102,10 +102,24 @@
 /*  ---break---*/
 
 @theme inline {
-  --color-primary: var(--primary);
+  --color-primary-background: var(--primary-background);
   --color-secondary: var(--secondary);
   --color-btn-primary: var(--btn-primary);
   --color-btn-text: var(--btn-text);
+  --color-primary-text : var(--primary-text);
+  --color-card: var(--card);
+  --color-card-border: var(--card-border);
+
+
+    /* table */
+  --color-table-header-bg: var(--table-header-bg);
+  --color-table-row-bg: var(--table-row-bg);
+  --color-table-hover-bg: var(--table-hover-bg);
+  --color-table-border: var(--table-border);
+  --color-table-text: var(--table-text);
+  --color-table-divider: var(--table-divider);
+  --color-table-muted-text: var(--table-muted-text);
+
 
   --radius-sm: calc(var(--radius) - 4px);
 
@@ -118,7 +132,6 @@
 
   --color-foreground: var(--foreground);
 
-  --color-card: var(--card);
 
   --color-card-foreground: var(--card-foreground);
 
@@ -179,13 +192,28 @@
 
 :root {
 
-  --primary: white;
+  --primary-background: #FFFFFF;
   --secondary: #10B981;
   --btn-primary: #10B981;
   --btn-text: white;
+  --primary-text : #171717;
+  --card: white;
+    --card-border: #E5E7EB;
+
+  /* table */
+   --table-header-bg: #F9FAFB;
+  --table-row-bg: #FFFFFF;
+  --table-hover-bg: #F3F4F6;
+  --table-border: #E5E7EB;
+  --table-text: #171717;
+  --table-muted-text: #6B7280;
+  --table-divider : #E5E7EB;
+
+
+
+  
   --radius: 0.625rem;
 
-  --card: oklch(1 0 0);
 
   --card-foreground: oklch(0.145 0 0);
 
@@ -249,17 +277,30 @@
 /*  ---break---*/
 
 .dark {
-  --primary: oklch(0.145 0 0);
+  /* --primary: oklch(0.145 0 0); */
+  --primary-background: #0A0A0A;
 
-  --secondary: oklch(0.145 0 0);
+  --secondary: #141414;
   --btn-primary: white;
   --btn-text: oklch(0.145 0 0);
+  --primary-text :  #E5E5E5;
+  --card: #141414;
+  --card-border: #1F1F1F;
 
 
-
+  /* table */
+  
+  --table-header-bg: #141414; /* same as card */
+  --table-row-bg: #0A0A0A; /* fallback main bg */
+  --table-hover-bg: #1A1A1A; /* subtle hover effect */
+  --table-border: #1F1F1F; 
+  --table-text: #E5E5E5;
+  --table-muted-text: #A1A1A1;
+    --table-divider : #1F1F1F;
+  
+  
   --foreground: oklch(0.985 0 0);
-
-  --card: oklch(0.205 0 0);
+  
 
   --card-foreground: oklch(0.985 0 0);
 
@@ -283,7 +324,6 @@
 
   --destructive: oklch(0.704 0.191 22.216);
 
-  --border: oklch(1 0 0 / 10%);
 
   --input: oklch(1 0 0 / 15%);
 

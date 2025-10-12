@@ -1,52 +1,9 @@
+"use client"
 
 import { FaEye, FaEdit, FaTrash } from 'react-icons/fa';
 
-// Dummy Orders JSON Data (without buyerName & paymentStatus)
-const orders = [
-  {
-    id: 'ORD001',
-    productName: 'iPhone 14 Pro Max',
-    category: 'Electronics',
-    quantity: 1,
-    price: 145000,
-    status: 'pending',
-    orderDate: '2024-01-15',
-    deliveryDate: '2024-01-20'
-  },
-  {
-    id: 'ORD002',
-    productName: 'Nike Air Jordan',
-    category: 'Clothing',
-    quantity: 2,
-    price: 8500,
-    status: 'processing',
-    orderDate: '2024-01-14',
-    deliveryDate: '2024-01-19'
-  },
-  {
-    id: 'ORD003',
-    productName: 'Samsung Smart TV 55"',
-    category: 'Electronics',
-    quantity: 1,
-    price: 65000,
-    status: 'shipped',
-    orderDate: '2024-01-13',
-    deliveryDate: '2024-01-18'
-  },
-  {
-    id: 'ORD004',
-    productName: 'Office Chair Executive',
-    category: 'Home & Garden',
-    quantity: 3,
-    price: 12000,
-    status: 'delivered',
-    orderDate: '2024-01-12',
-    deliveryDate: '2024-01-17'
-  },
-];
-
 export default function MyPurchases() {
-  // Status badge colors
+
   const getStatusColor = (status) => {
     switch (status) {
       case 'pending':
@@ -65,83 +22,97 @@ export default function MyPurchases() {
   };
 
   return (
-    <div className="">
+    <div className='mb-6'>
       {/* Header */}
-      <div className="mb-6">
-        <h1 className="text-2xl lg:text-3xl font-bold text-gray-900">My Orders</h1>
-
+      <div className="mb-6 flex justify-between items-center">
+        <h1 className="text-2xl font-bold text-primary-text">My Purchase</h1>
+   
       </div>
 
       {/* Table */}
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+      <div className=" rounded-lg shadow-sm border border-table-border overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-gray-50 border-b border-gray-200">
+            <thead className="bg-table-header-bg border-b border-table-border">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Order ID
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Product Details
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Quantity
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Price
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Status
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Actions
-                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-table-text uppercase tracking-wider">Order ID</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-table-text uppercase tracking-wider">Product Details</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-table-text uppercase tracking-wider">Quantity</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-table-text uppercase tracking-wider">Price</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-table-text uppercase tracking-wider">Status</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-table-text uppercase tracking-wider">Actions</th>
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
-              {orders.map((order) => (
-                <tr key={order.id} className="hover:bg-gray-50">
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <span className="text-sm font-medium text-gray-900">#{order.id}</span>
-                  </td>
-                  <td className="px-6 py-4">
-                    <div>
-                      <p className="text-sm font-medium text-gray-900">{order.productName}</p>
-                      <p className="text-xs text-gray-500">{order.category}</p>
-                    </div>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <span className="text-sm text-gray-900">{order.quantity}</span>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <span className="text-sm font-medium text-gray-900">
-                      ${order.price.toLocaleString()}
-                    </span>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <span
-                      className={`px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${getStatusColor(
-                        order.status
-                      )}`}
-                    >
-                      {order.status}
-                    </span>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="flex space-x-2">
-                      <button className="text-blue-600 hover:text-blue-900" title="View">
-                        <FaEye />
-                      </button>
-                      <button className="text-green-600 hover:text-green-900" title="Edit">
-                        <FaEdit />
-                      </button>
-                      <button className="text-red-600 hover:text-red-900" title="Delete">
-                        <FaTrash />
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
+            <tbody className="bg-table-row-bg  divide-y divide-table-divider ">
+              {/* Row 1 */}
+              <tr className="hover:bg-table-hover-bg">
+                <td className="px-6 py-4 whitespace-nowrap">#ORD001</td>
+                <td className="px-6 py-4">
+                  <p className="text-sm font-medium  text-table-text ">iPhone 14 Pro Max</p>
+                  <p className="text-xs text-table-text ">Electronics</p>
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">1</td>
+                <td className="px-6 py-4 whitespace-nowrap">$145,000</td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  <span className={`px-3 py-1 inline-flex text-xs font-semibold rounded-full ${getStatusColor('pending')}`}>
+                    pending
+                  </span>
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  <div className="flex space-x-2">
+                    <button className="text-blue-600 hover:text-blue-900"><FaEye /></button>
+                    <button className="text-green-600 hover:text-green-900"><FaEdit /></button>
+                    <button className="text-red-600 hover:text-red-900"><FaTrash /></button>
+                  </div>
+                </td>
+              </tr>
+
+              {/* Row 2 */}
+              <tr className="hover:bg-table-hover-bg">
+                <td className="px-6 py-4 whitespace-nowrap">#ORD002</td>
+                <td className="px-6 py-4">
+                  <p className="text-sm font-medium  text-table-text ">Nike Air Jordan</p>
+                  <p className="text-xs  text-table-text ">Clothing</p>
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">2</td>
+                <td className="px-6 py-4 whitespace-nowrap">$8,500</td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  <span className={`px-3 py-1 inline-flex text-xs font-semibold rounded-full ${getStatusColor('processing')}`}>
+                    processing
+                  </span>
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  <div className="flex space-x-2">
+                    <button className="text-blue-600 hover:text-blue-900"><FaEye /></button>
+                    <button className="text-green-600 hover:text-green-900"><FaEdit /></button>
+                    <button className="text-red-600 hover:text-red-900"><FaTrash /></button>
+                  </div>
+                </td>
+              </tr>
+
+              {/* Row 3 */}
+              <tr className="hover:bg-table-hover-bg">
+                <td className="px-6 py-4 whitespace-nowrap">#ORD003</td>
+                <td className="px-6 py-4">
+                  <p className="text-sm font-medium  text-table-text ">Samsung Smart TV 55"</p>
+                  <p className="text-xs  text-table-text ">Electronics</p>
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">1</td>
+                <td className="px-6 py-4 whitespace-nowrap">$65,000</td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  <span className={`px-3 py-1 inline-flex text-xs font-semibold rounded-full ${getStatusColor('shipped')}`}>
+                    shipped
+                  </span>
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  <div className="flex space-x-2">
+                    <button className="text-blue-600 hover:text-blue-900"><FaEye /></button>
+                    <button className="text-green-600 hover:text-green-900"><FaEdit /></button>
+                    <button className="text-red-600 hover:text-red-900"><FaTrash /></button>
+                  </div>
+                </td>
+              </tr>
+
             </tbody>
           </table>
         </div>

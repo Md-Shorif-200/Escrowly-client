@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import Container from "@/components/Shared/Container";
+import Container from "../Shared/Container";
 
 
 import img_1 from "../../public/banner.svg";  

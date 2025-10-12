@@ -1,11 +1,10 @@
-import Container from '@/components/Shared/Container'
-import React from 'react'
-import Banner from './Banner'
-import OurServices from './OurServices'
-import Statistics from './Statistics'
-import HowItWorks from './HowItWorks'
-import WhyChooseUs from './WhyChooseUs'
-import TopSeller from './TopSeller'
+
+import Banner from './Home/Banner'
+import OurServices from './Home/OurServices'
+import Statistics from './Home/Statistics'
+import HowItWorks from './Home/HowItWorks'
+import WhyChooseUs from './Home/WhyChooseUs'
+import TopSeller from './Home/TopSeller'
 
 export default function HomePage() {
   return (

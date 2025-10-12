@@ -39,22 +39,23 @@ export default function SellingPost() {
     setMediaFiles(files);
   };
 
-  const labelClasses = "block text-sm font-medium text-gray-700 mb-2";
+  const labelClasses = "block text-sm font-medium text-primary-text mb-2";
   const inputBaseClasses =
-    "w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#10B981] focus:border-[#10B981]";
+    "w-full px-3 py-2 border border-card-border rounded-lg text-primary-text focus:outline-none focus:ring-2 focus:ring-[#10B981] focus:border-[#10B981]";
+       const section_heading = "bg-[#10B981]  px-4 py-2 rounded-t-lg text-lg font-semibold text-white";
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="w-full bg-white p-6 rounded-2xl border border-gray-100">
-        <h2 className="text-3xl font-bold text-gray-900 mb-8">
+    <div className="min-h-screen">
+      <div className="w-full bg-card p-6 rounded-2xl border border-card-border">
+        <h2 className="text-3xl font-bold text-primary-text mb-8">
           Create Selling Post
         </h2>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-10">
           {/* ======================= Media Upload Section ======================= */}
-          <div className="border border-gray-200 rounded-lg">
-            <div className="bg-[#10B981] px-4 py-2 rounded-t-lg">
-              <h3 className="text-lg font-semibold text-white">
+          <div className="border border-card-border rounded-lg">
+            <div className={section_heading}>
+              <h3 className="">
                 Media Upload (Max 3 files)
               </h3>
             </div>
@@ -68,10 +69,10 @@ export default function SellingPost() {
               </label>
 
               <div className="flex items-center justify-center w-full">
-                <label className="flex flex-col items-center justify-center w-full h-40 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
+                <label className="flex flex-col items-center justify-center w-full h-40 border-2 border-dashed border-card-border rounded-lg cursor-pointer bg-card hover:bg-table-hover-bg">
                   <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                    <FaUpload className="text-gray-400 text-3xl mb-2" />
-                    <p className="text-sm text-gray-500">
+                    <FaUpload className="text-primary-text text-3xl mb-2" />
+                    <p className="text-sm text-primary-text">
                       Click to upload or drag & drop
                     </p>
                     <p className="text-xs text-gray-400">Max 3 files</p>
@@ -117,9 +118,9 @@ export default function SellingPost() {
           </div>
 
           {/* ======================= Product Information ======================= */}
-          <div className="border border-gray-200 rounded-lg">
-            <div className="bg-[#10B981] px-4 py-2 rounded-t-lg">
-              <h3 className="text-lg font-semibold text-white">
+          <div className="border border-card-border rounded-lg">
+            <div className={section_heading}>
+              <h3 className="">
                 Product Information
               </h3>
             </div>
@@ -133,7 +134,7 @@ export default function SellingPost() {
                 <input
                   type="text"
                   className={`${inputBaseClasses} ${
-                    errors.title ? "border-red-300" : "border-gray-300"
+                    errors.title ? "border-red-300" : "border-card-border"
                   }`}
                   placeholder="Enter product title"
                   {...register("title", { required: "Title is required" })}
@@ -152,7 +153,7 @@ export default function SellingPost() {
                 </label>
                 <select
                   className={`${inputBaseClasses} ${
-                    errors.category ? "border-red-300" : "border-gray-300"
+                    errors.category ? "border-red-300" : "border-card-border"
                   }`}
                   {...register("category", { required: "Category is required" })}
                 >
@@ -175,7 +176,7 @@ export default function SellingPost() {
                 </label>
                 <select
                   className={`${inputBaseClasses} ${
-                    errors.deliveryMethod ? "border-red-300" : "border-gray-300"
+                    errors.deliveryMethod ? "border-red-300" : "border-card-border"
                   }`}
                   {...register("deliveryMethod", {
                     required: "Delivery method is required",
@@ -235,7 +236,7 @@ export default function SellingPost() {
                 <input
                   type="number"
                   className={`${inputBaseClasses} ${
-                    errors.price ? "border-red-300" : "border-gray-300"
+                    errors.price ? "border-red-300" : "border-card-border"
                   }`}
                   placeholder="Enter price"
                   {...register("price", {
@@ -258,7 +259,7 @@ export default function SellingPost() {
                 <input
                   type="text"
                   className={`${inputBaseClasses} ${
-                    errors.location ? "border-red-300" : "border-gray-300"
+                    errors.location ? "border-red-300" : "border-card-border"
                   }`}
                   placeholder="Enter location"
                   {...register("location", {
@@ -277,7 +278,7 @@ export default function SellingPost() {
                 <label className={labelClasses}>Description</label>
                 <textarea
                   rows="3"
-                  className={`${inputBaseClasses} border-gray-300`}
+                  className={`${inputBaseClasses} border-card-border`}
                   placeholder="Describe your product..."
                   {...register("description")}
                 />
@@ -286,9 +287,9 @@ export default function SellingPost() {
           </div>
 
           {/* ======================= Seller Information ======================= */}
-          <div className="border border-gray-200 rounded-lg">
-            <div className="bg-[#10B981] px-4 py-2 rounded-t-lg">
-              <h3 className="text-lg font-semibold text-white">
+          <div className="border border-card-border rounded-lg">
+            <div className={section_heading}>
+              <h3 className="">
                 Seller Information
               </h3>
             </div>
@@ -346,9 +347,9 @@ export default function SellingPost() {
           </div>
 
           {/* ======================= Safe Deal Protection ======================= */}
-          <div className="border border-gray-200 rounded-lg">
-            <div className="bg-[#10B981] px-4 py-2 rounded-t-lg">
-              <h3 className="text-lg font-semibold text-white">
+          <div className="border border-card-border rounded-lg">
+            <div className={section_heading}>
+              <h3 className="">
                 Safe Deal Protection
               </h3>
             </div>
@@ -383,7 +384,7 @@ export default function SellingPost() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`w-[180px] py-3 px-4 flex justify-center items-center rounded-lg shadow-sm text-white font-medium transition duration-200
+              className={`w-[180px] py-3 px-4 flex justify-center items-center rounded-lg shadow-sm text-white font-medium transition duration-200 cursor-pointer
                 ${
                   isSubmitting
                     ? "bg-gray-400 cursor-not-allowed"
@@ -410,7 +411,7 @@ export default function SellingPost() {
                 setMediaFiles([]);
               }}
               disabled={isSubmitting}
-              className="py-3 px-6 flex justify-center items-center border border-gray-300 rounded-lg text-gray-700 font-medium bg-white hover:bg-gray-50 transition duration-200 disabled:opacity-50"
+              className="py-3 px-6 flex justify-center items-center border border-card-border rounded-lg text-gray-700 font-medium bg-white hover:bg-gray-50 transition duration-200 disabled:opacity-50 cursor-pointer"
             >
               <FaUndo className="mr-2" />
               Reset

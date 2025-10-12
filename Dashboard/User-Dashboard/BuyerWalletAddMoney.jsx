@@ -35,10 +35,10 @@ export default function BuyerWalletAddMoney() {
   };
 
   return (
-    <div className="max-w-2xl mx-auto mt-10 bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-800 transition-all duration-300">
+    <div className="max-w-2xl mx-auto mt-10 bg-card  p-6 rounded-2xl shadow-lg border border-card-border transition-all duration-300">
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100 flex items-center gap-2">
+        <h2 className="text-2xl font-bold text-primary-text flex items-center gap-2">
           <FaWallet className="text-emerald-500" />
           My Wallet
         </h2>
@@ -53,26 +53,26 @@ export default function BuyerWalletAddMoney() {
       {/* Add Money Form */}
       <form onSubmit={handleAddMoney} className="space-y-5">
         <div>
-          <label className="block text-gray-700 dark:text-gray-300 mb-2 font-medium">
+          <label className="block text-primary-text mb-2 font-medium">
             Enter Amount
           </label>
           <input
             type="number"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
-            className="w-full p-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-transparent focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            className="w-full p-3 rounded-xl border border-card-border bg-transparent focus:outline-none focus:ring-2 focus:ring-emerald-500"
             placeholder="e.g. 1000"
           />
         </div>
 
         <div>
-          <label className="block text-gray-700 dark:text-gray-300 mb-2 font-medium">
+          <label className="block text-primary-text mb-2 font-medium">
             Select Payment Gateway
           </label>
           <select
             value={gateway}
             onChange={(e) => setGateway(e.target.value)}
-            className="w-full p-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-transparent focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            className="w-full p-3 rounded-xl border border-card-border bg-card focus:outline-none focus:ring-2 focus:ring-emerald-500"
           >
             <option value="sslcommerz">SSLCommerz (BD)</option>
             <option value="bkash">bKash</option>

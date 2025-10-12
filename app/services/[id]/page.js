@@ -1,4 +1,4 @@
-import ServiceDetails from "@/Pages/Services/ServiceDetails";
+import ServiceDetails from "@/components/Services/ServiceDetails";
 
 const img = "/service.jpg";
 const img_2 = "/service-2.jpg";

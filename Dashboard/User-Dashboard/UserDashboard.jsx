@@ -26,16 +26,16 @@ export default function UserDashboard() {
 
   return (
     <div className="">
-      {/* Welcome Section with User Info */}
-      <div className="bg-secondary rounded-xl p-6 mb-6 text-white border">
+
+      <div className="bg-secondary rounded-xl p-6 mb-6 text-white border border-card-border">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-          <div className="flex flex-col sm:flex-row  items-start sm:items-center space-x-4">
-            {/* User Avatar */}
-            <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center border ">
+          <div className="flex flex-row  items-start sm:items-center space-x-4">
+          
+            <div className="w-16 h-16 bg-card  text-primary-text  rounded-full flex items-center justify-center border ">
               <FaUser className="text-[#10B981] text-2xl" />
             </div>
 
-            {/* User Details */}
+ 
             <div>
               <h2 className="text-2xl font-bold">Welcome, {buyerInfo.name}!</h2>
               <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 mt-2">
@@ -50,8 +50,8 @@ export default function UserDashboard() {
             </div>
           </div>
 
-          {/* notification Since */}
-          <div className="mt-4 md:mt-0 text-right flex items-center gap-6">
+
+          <div className="mt-4 md:mt-0 text-right flex items-center gap-4 justify-end">
                      <ModeToggle></ModeToggle>
                  <Link href='/user-dashboard/user-notification' className="cursor-pointer">
                     <IoNotificationsSharp className="text-3xl"></IoNotificationsSharp>
@@ -60,7 +60,7 @@ export default function UserDashboard() {
         </div>
       </div>
 
-      <div className="bg-primary rounded-lg shadow p-6 flex justify-between items-center mb-6 border">
+      <div className="bg-card  text-primary-text  rounded-lg shadow p-6 flex justify-between items-center mb-6 ">
         <div>
           <h1 className="text-xl font-semibold ">Wallet balance</h1>
           <p className="text-4xl font-bold ">$25000</p>
@@ -70,22 +70,22 @@ export default function UserDashboard() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 mb-6 border">
-        <div className="bg-primary rounded-lg shadow p-6 ">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 mb-6 ">
+        <div className="bg-card  text-primary-text  rounded-lg shadow p-6 ">
           <div>
             <h1 className="text-xl font-normal capitalize ">Active Orders</h1>
             <p className="text-3xl font-semibold ">10</p>
           </div>
         </div>
 
-        <div className="bg-primary rounded-lg shadow p-6 ">
+        <div className="bg-card  text-primary-text  rounded-lg shadow p-6 ">
           <div>
             <h1 className="text-xl font-normal capitalize ">pending Orders</h1>
             <p className="text-3xl font-semibold ">3</p>
           </div>
         </div>
 
-        <div className="bg-primary rounded-lg shadow p-6 ">
+        <div className="bg-card  text-primary-text rounded-lg shadow p-6 ">
           <div>
             <h1 className="text-xl font-normal capitalize ">
               compleated Orders
@@ -94,7 +94,7 @@ export default function UserDashboard() {
           </div>
         </div>
 
-        <div className="bg-primary rounded-lg shadow p-6 ">
+        <div className="bg-card  text-primary-text  rounded-lg shadow p-6 ">
           <div>
             <h1 className="text-xl font-normal capitalize ">
               disputted Orders
@@ -110,7 +110,7 @@ export default function UserDashboard() {
       {/* Additional Summary Row */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {/* Total Spent Card */}
-        <div className="bg-primary rounded-lg shadow p-6 border">
+        <div className="bg-card  text-primary-text rounded-lg shadow p-6 border border-card-border">
           <h3 className="text-sm font-medium">Total Spent</h3>
           <p className="text-3xl font-bold mt-2">
             ${orderStats.totalSpent.toLocaleString()}
@@ -119,7 +119,7 @@ export default function UserDashboard() {
         </div>
 
         {/* Average Order Value */}
-        <div className="bg-primary shadow rounded-lg p-6 border ">
+        <div className="bg-card  text-primary-text shadow rounded-lg p-6 border border-card-border ">
           <h3 className=" text-sm font-medium">Average Order Value</h3>
           <p className="text-3xl font-bold mt-2">
             $

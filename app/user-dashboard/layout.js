@@ -5,7 +5,7 @@ import UserDashboardSidebar from "@/Dashboard/User-Dashboard/UserDashboardSideba
 
 export default function DashboardLayout({ children }) {
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen bg-primary-background">
  
       <UserDashboardSidebar />
 

@@ -75,25 +75,27 @@ export default function KycVerification() {
     }
   };
 
-  const labelClasses = "block text-sm font-medium text-gray-700 mb-2";
+  const labelClasses = "block text-sm font-medium text-primary-text mb-2";
   const inputBaseClasses =
-    "w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#10B981] focus:border-[#10B981]";
+    "w-full px-3 py-2 border border-card-border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#10B981] focus:border-[#10B981]";
 
   const uploadInputClasses =
-    "w-full cursor-pointer px-3 py-2 border rounded-lg bg-gray-50 hover:bg-gray-100 transition-all text-gray-700 focus:ring-2 focus:ring-[#10B981] focus:border-[#10B981]";
+    "w-full cursor-pointer px-3 py-2 border border-card-border rounded-lg bg-card  hover:bg-table-hover-bg transition-all text-primary-text focus:ring-2 focus:ring-[#10B981] focus:border-[#10B981]";
+
+           const section_heading = "bg-[#10B981]  px-4 py-2 rounded-t-lg text-lg font-semibold text-white";
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="w-full bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
-        <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+    <div className="min-h-screen">
+      <div className="w-full bg-card p-6 rounded-2xl border border-card-border">
+        <h2 className="text-3xl font-bold text-primary-text mb-8 ">
           KYC Verification Form
         </h2>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-10">
           {/* Personal Information Section */}
-          <div className="border border-gray-200 rounded-lg">
-            <div className="bg-[#10B981] px-4 py-2 rounded-t-lg">
-              <h3 className="text-lg font-semibold text-white">
+          <div className="border border-card-border rounded-lg">
+            <div className={section_heading}>
+              <h3 className="">
                 Personal Information
               </h3>
             </div>
@@ -106,7 +108,7 @@ export default function KycVerification() {
                 <input
                   type="text"
                   className={`${inputBaseClasses} ${
-                    errors.fullName ? "border-red-300" : "border-gray-300"
+                    errors.fullName ? "border-red-300" : "border-card-border"
                   }`}
                   placeholder="Enter your full name"
                   {...register("fullName", { required: "Full name is required" })}
@@ -123,7 +125,7 @@ export default function KycVerification() {
                 <input
                   type="email"
                   className={`${inputBaseClasses} ${
-                    errors.email ? "border-red-300" : "border-gray-300"
+                    errors.email ? "border-red-300" : "border-card-border"
                   }`}
                   placeholder="Enter your email"
                   {...register("email", {
@@ -146,7 +148,7 @@ export default function KycVerification() {
                 <input
                   type="tel"
                   className={`${inputBaseClasses} ${
-                    errors.phone ? "border-red-300" : "border-gray-300"
+                    errors.phone ? "border-red-300" : "border-card-border"
                   }`}
                   placeholder="e.g., 01712345678"
                   {...register("phone", {
@@ -169,7 +171,7 @@ export default function KycVerification() {
                 <input
                   type="text"
                   className={`${inputBaseClasses} ${
-                    errors.nidNumber ? "border-red-300" : "border-gray-300"
+                    errors.nidNumber ? "border-red-300" : "border-card-border"
                   }`}
                   placeholder="Enter your NID number"
                   {...register("nidNumber", { required: "NID number is required" })}
@@ -183,7 +185,7 @@ export default function KycVerification() {
                 <label className={labelClasses}>Passport Number (Optional)</label>
                 <input
                   type="text"
-                  className={`${inputBaseClasses} border-gray-300`}
+                  className={`${inputBaseClasses} border-card-border`}
                   placeholder="Enter passport number (if any)"
                   {...register("passportNumber")}
                 />
@@ -192,9 +194,9 @@ export default function KycVerification() {
           </div>
 
           {/* NID Upload Section */}
-          <div className="border border-gray-200 rounded-lg">
-            <div className="bg-[#10B981] px-4 py-2 rounded-t-lg">
-              <h3 className="text-lg font-semibold text-white">NID Card Upload</h3>
+          <div className="border border-card-border rounded-lg">
+            <div className={section_heading}>
+              <h3 className="">NID Card Upload</h3>
             </div>
 
             <div className="p-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -247,9 +249,9 @@ export default function KycVerification() {
           </div>
 
           {/* Passport Upload Section (Optional) */}
-          <div className="border border-gray-200 rounded-lg">
-            <div className="bg-[#10B981] px-4 py-2 rounded-t-lg">
-              <h3 className="text-lg font-semibold text-white">
+          <div className="border border-card-border rounded-lg">
+            <div className={section_heading}>
+              <h3 className="">
                 Passport Upload (Optional)
               </h3>
             </div>
@@ -298,7 +300,7 @@ export default function KycVerification() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className={`w-[180px] py-3 px-4 flex justify-center items-center rounded-lg shadow-sm text-white font-medium transition duration-200
+              className={`w-[180px] py-3 px-4 flex justify-center items-center rounded-lg shadow-sm text-white font-medium transition duration-200 cursor-pointer
                 ${
                   isSubmitting
                     ? "bg-gray-400 cursor-not-allowed"
@@ -329,7 +331,7 @@ export default function KycVerification() {
                 setCompressedFiles({});
               }}
               disabled={isSubmitting}
-              className="py-3 px-6 flex justify-center items-center border border-gray-300 rounded-lg text-gray-700 font-medium bg-white hover:bg-gray-50 transition duration-200 disabled:opacity-50"
+              className="py-3 px-6 flex justify-center items-center border border-card-border rounded-lg text-gray-700 font-medium bg-white hover:bg-gray-50 transition duration-200 disabled:opacity-50 cursor-pointer"
             >
               <FaUndo className="mr-2" />
               Reset
