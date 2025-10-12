@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaArrowRight, FaEye, FaEyeSlash, FaSpinner } from "react-icons/fa";
 
-import img_1 from "../../public/Lottie/Shopping Green.json";
+import img_1 from "../public/Lottie/Shopping Green.json";
 import Lottie from "lottie-react";
 import useAuth from "@/CustomHooks/useAuth";
 import toast from "react-hot-toast";
