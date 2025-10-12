@@ -1,5 +1,5 @@
-import DashboardTable from "../../components/DashboardTable.jsx";
-import { ModeToggle } from "../../components/ModeToggle.jsx";
+import DashboardTable from "./DashboardTable.jsx";
+import { ModeToggle } from "./ModeToggle.jsx";
 import Link from "next/link";
 import { FaUser } from "react-icons/fa";
 import { IoNotificationsSharp } from "react-icons/io5";
