@@ -1,4 +1,4 @@
-import Container from "@/components/Shared/Container";
+import Container from "@/Components/Shared/Container";
 import Image from "next/image";
 
 const HERO_IMAGE_PATH = "/newLife.png";

@@ -1,7 +1,7 @@
 
 import Image from "next/image";
-import SectionTitle from "@/components/Shared/SectionTitle";
-import Container from "@/components/Shared/Container";
+import SectionTitle from "@/Components/Shared/SectionTitle";
+import Container from "@/Components/Shared/Container";
 import Link from "next/link";
 
 const img = "/service.jpg";

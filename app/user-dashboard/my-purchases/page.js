@@ -1,4 +1,4 @@
-import MyPurchases from "@/components/User-Dashboard/MyPurchases";
+import MyPurchases from "@/Components/User-Dashboard/MyPurchases";
 
 
 export default function page() {

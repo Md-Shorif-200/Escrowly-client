@@ -1,4 +1,4 @@
-import BuyerWalletAddMoney from "@/components/User-Dashboard/BuyerWalletAddMoney";
+import BuyerWalletAddMoney from "@/Components/User-Dashboard/BuyerWalletAddMoney";
 
 export default function page() {
   return (

@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Container from "@/components/Shared/Container";
-import SectionTitle from "@/components/Shared/SectionTitle";
+import Container from "@/Components/Shared/Container";
+import SectionTitle from "@/Components/Shared/SectionTitle";
 
 const topSellersData = [
   {

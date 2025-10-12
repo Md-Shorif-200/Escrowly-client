@@ -1,4 +1,4 @@
-import OurServices from '@/components/Home/OurServices'
+import OurServices from '@/Components/Home/OurServices'
 
 
 export default function page() {

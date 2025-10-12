@@ -1,4 +1,4 @@
-import LogIn from "../../components/LogIn.jsx";
+import LogIn from "../../Components/LogIn.jsx";
 
 
 

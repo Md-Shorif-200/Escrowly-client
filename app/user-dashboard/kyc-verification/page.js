@@ -1,4 +1,4 @@
-import KycVerification from '@/components/User-Dashboard/KycVerification'
+import KycVerification from '@/Components/User-Dashboard/KycVerification'
 
 
 export default function page() {

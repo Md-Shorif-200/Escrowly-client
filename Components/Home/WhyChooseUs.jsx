@@ -1,5 +1,5 @@
-import Container from "@/components/Shared/Container";
-import SectionTitle from "@/components/Shared/SectionTitle";
+import Container from "@/Components/Shared/Container";
+import SectionTitle from "@/Components/Shared/SectionTitle";
 import Image from "next/image";
 import { FaShieldAlt, FaWallet } from "react-icons/fa";
 import { FiMessageSquare } from "react-icons/fi";

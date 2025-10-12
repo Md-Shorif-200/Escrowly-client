@@ -1,4 +1,4 @@
-import SellingPost from '@/components/User-Dashboard/SellingPost'
+import SellingPost from '@/Components/User-Dashboard/SellingPost'
 import React from 'react'
 
 export default function page() {
