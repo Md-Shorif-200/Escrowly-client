@@ -1,5 +1,5 @@
 
-import UserDashboard from '@/Dashboard/User-Dashboard/UserDashboard'
+import UserDashboard from '@/components/User-Dashboard/UserDashboard'
 import React from 'react'
 
 export default function page() {

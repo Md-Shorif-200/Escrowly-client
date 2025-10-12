@@ -1,4 +1,4 @@
-import UserNotification from "@/Dashboard/User-Dashboard/UserNotification";
+import UserNotification from "@/components/User-Dashboard/UserNotification";
 
 
 

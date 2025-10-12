@@ -1,4 +1,4 @@
-import CreatOrder from '@/Dashboard/User-Dashboard/CreatOrder'
+import CreatOrder from '@/components/User-Dashboard/CreatOrder'
 
 
 export default function page() {

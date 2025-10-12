@@ -1,4 +1,4 @@
-import UserDashboardSidebar from "@/Dashboard/User-Dashboard/UserDashboardSidebar";
+import UserDashboardSidebar from "@/components/User-Dashboard/UserDashboardSidebar";
 
 
 
